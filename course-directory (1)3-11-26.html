@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Trading Course — Class Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a12;
+            --surface: #12121e;
+            --surface-alt: #181828;
+            --border: #232336;
+            --text: #e2e2f0;
+            --text-dim: #7e7e9a;
+            --text-muted: #55556e;
+            --accent: #7c6aef;
+            --accent-soft: rgba(124,106,239,0.12);
+            --accent-border: rgba(124,106,239,0.25);
+            --green: #34d399;
+            --green-soft: rgba(52,211,153,0.1);
+            --green-border: rgba(52,211,153,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* === HEADER === */
+        .header {
+            padding: 44px 24px 0;
+            text-align: center;
+        }
+        .header-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .header h1 {
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .header p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        /* === TOOLBAR === */
+        .toolbar {
+            max-width: 900px;
+            margin: 28px auto 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .search-box {
+            flex: 1;
+            position: relative;
+        }
+        .search-box svg {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 11px 16px 11px 40px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-box input:focus { border-color: var(--accent); }
+
+        .result-count {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* === TABLE === */
+        .table-wrap {
+            max-width: 900px;
+            margin: 14px auto 40px;
+            padding: 0 20px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        thead th {
+            padding: 12px 16px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            text-align: left;
+            background: var(--surface-alt);
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        thead th:first-child { padding-left: 20px; width: 56px; }
+
+        tbody tr { transition: background 0.15s; }
+        tbody tr:hover { background: rgba(124,106,239,0.04); }
+        tbody tr:not(:last-child) td { border-bottom: 1px solid var(--border); }
+
+        td {
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+        td:first-child { padding-left: 20px; }
+
+        .class-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            min-width: 36px;
+            text-align: center;
+        }
+        .class-title { font-weight: 600; color: #fff; }
+        .cell-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+        }
+
+        /* === LINK BUTTONS === */
+        .link-group { display: flex; align-items: center; gap: 6px; }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 7px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .link-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+        .btn-lesson {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+        }
+        .btn-lesson:hover { background: rgba(124,106,239,0.22); color: #fff; }
+
+        .btn-recording {
+            background: var(--green-soft);
+            border: 1px solid var(--green-border);
+            color: var(--green);
+        }
+        .btn-recording:hover { background: rgba(52,211,153,0.2); color: #fff; }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .copy-btn svg { width: 13px; height: 13px; }
+        .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+        .coming {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* === NO RESULTS === */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .no-results.show { display: block; }
+
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        /* === TOOLTIP === */
+        .tooltip {
+            position: fixed;
+            background: var(--green);
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 1000;
+        }
+        .tooltip.show { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-badge">Decentralized Masters</div>
+        <h1>Beginner Trading Course</h1>
+        <p>Class Directory</p>
+        <p style="margin-top: 8px; font-size: 0.82rem; color: var(--text-muted);">Created and curated by Juan Manuel Villar</p>
+    </div>
+
+    <div class="toolbar">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search classes...">
+        </div>
+        <div class="result-count" id="resultCount"></div>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Lesson</th>
+                    <th>Recording</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <div class="no-results" id="noResults">No classes match your search.</div>
+    </div>
+
+    <div class="footer">New classes are added after each live session.</div>
+
+    <div class="tooltip" id="tooltip">Copied!</div>
+
+    <script>
+    // ════════════════════════════════════════════════
+    //  CLASS DATA — Add new rows here each week
+    // ════════════════════════════════════════════════
+    var classes = [
+        {
+            num: "1",
+            title: "Trading Fundamentals",
+            date: "Jan 7",
+            lessonUrl: "https://claude.ai/public/artifacts/51aeeda5-60ec-4b7d-af9a-ab7e21a64062",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-7-2025"
+        },
+        {
+            num: "2",
+            title: "TradingView Tutorial",
+            date: "Jan 13",
+            lessonUrl: "https://claude.ai/public/artifacts/e8d9f6ec-a397-4777-8e06-cb45796f39d9",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-13-2026"
+        },
+        {
+            num: "3",
+            title: "Shorting — Practical Walkthrough",
+            date: "Jan 14",
+            lessonUrl: "https://claude.ai/public/artifacts/4242bc78-dc45-409d-b7d5-7e0b1e4d9761",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-14-2026"
+        },
+        {
+            num: "4",
+            title: "Support & Resistance Deep Dive",
+            date: "Jan 20",
+            lessonUrl: "https://claude.ai/public/artifacts/faac2223-4032-473b-8246-61770161b0f7",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-20-2026"
+        },
+        {
+            num: "5",
+            title: "Candlestick Patterns",
+            date: "Jan 21",
+            lessonUrl: "https://claude.ai/public/artifacts/c2531754-be58-4fbe-8663-e09b64e8843a",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-21-2026"
+        },
+        {
+            num: "6",
+            title: "Chart Patterns Part 1 — Reversal Patterns",
+            date: "Jan 27",
+            lessonUrl: "https://claude.ai/public/artifacts/115589fe-0e86-4967-bdd0-4737205291aa",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-27-2026"
+        },
+        {
+            num: "7",
+            title: "Chart Patterns Part 2 — Continuation & Bilateral",
+            date: "Jan 28",
+            lessonUrl: "https://claude.ai/public/artifacts/749723ce-d368-4330-951b-04e5f5162483",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jan-28-2026"
+        },
+        {
+            num: "8",
+            title: "Fundamental vs Technical Analysis",
+            date: "Feb 3",
+            lessonUrl: "https://claude.ai/public/artifacts/51827efc-0118-41b0-add3-80b692b30c3e",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-3-2026"
+        },
+        {
+            num: "9",
+            title: "Moving Averages Deep Dive",
+            date: "Feb 4",
+            lessonUrl: "https://claude.ai/public/artifacts/578c26da-cb92-4b26-b1c5-c50a68c68d32",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-4-2026"
+        },
+        {
+            num: "10A",
+            title: "Portfolio Hedging — Prerequisites",
+            date: "Feb 10",
+            lessonUrl: "https://claude.ai/public/artifacts/d6d39ddc-c680-4440-b775-7a0d5c80a4bb",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-10-2026"
+        },
+        {
+            num: "10B",
+            title: "Portfolio Hedging — Strategy",
+            date: "Feb 11",
+            lessonUrl: "https://claude.ai/public/artifacts/3afd8ca7-8581-403b-8c20-4baf6ec5cd17",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-11-2026"
+        },
+        {
+            num: "11",
+            title: "Trendlines & Channels",
+            date: "Feb 17",
+            lessonUrl: "https://claude.ai/public/artifacts/8794bc13-6d9b-4e17-99b8-0c1cc013a092",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-17-2026"
+        },
+        {
+            num: "12",
+            title: "Market Structure & Top-Down Analysis",
+            date: "Feb 18",
+            lessonUrl: "https://claude.ai/public/artifacts/a3921c93-ea41-47a9-b940-60066d989d1b",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-18-2026"
+        },
+        {
+            num: "13",
+            title: "Fibonacci Retracement",
+            date: "Feb 24",
+            lessonUrl: "https://claude.ai/public/artifacts/188c5342-ec7e-4ba9-8a07-916e5645f963",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-24-2026"
+        },
+        {
+            num: "14",
+            title: "Technical Indicators",
+            date: "Feb 25",
+            lessonUrl: "https://claude.ai/public/artifacts/c3b11f38-e3a1-43ba-81db-374da350f8bf",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-feb-25-2026"
+        },
+        {
+            num: "15",
+            title: "Probability & Expected Value",
+            date: "Mar 3",
+            lessonUrl: "https://claude.ai/public/artifacts/294831cf-d08b-4c08-83e9-617e7b18624e",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-march-4-2026"
+        },
+        {
+            num: "16",
+            title: "Kelly's Criterion",
+            date: "Mar 4",
+            lessonUrl: "https://claude.ai/public/artifacts/b9bf4220-ae04-4df8-aebb-a620a3b01a97",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-march-3-2026"
+        }
+        // ↓ ADD NEW CLASSES HERE ↓
+    ];
+
+    // ════════════════════════════════════════════════
+    //  RENDER
+    // ════════════════════════════════════════════════
+    var tbody = document.getElementById('tableBody');
+    var searchInput = document.getElementById('searchInput');
+    var resultCount = document.getElementById('resultCount');
+    var noResults = document.getElementById('noResults');
+    var tooltip = document.getElementById('tooltip');
+
+    var svgCopy = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    var svgCheck = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+    var svgBook = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
+    var svgPlay = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+
+    function renderTable(filter) {
+        filter = (filter || '').toLowerCase();
+        var html = '';
+        var count = 0;
+
+        classes.forEach(function(c) {
+            if (filter && (c.num + ' ' + c.title + ' ' + c.date).toLowerCase().indexOf(filter) === -1) return;
+            count++;
+            html += '<tr>';
+            html += '<td><span class="class-num">' + c.num + '</span></td>';
+            html += '<td><span class="class-title">' + c.title + '</span></td>';
+            html += '<td><span class="cell-date">' + c.date + '</span></td>';
+
+            // Lesson
+            html += '<td><div class="link-group">';
+            if (c.lessonUrl) {
+                html += '<a href="' + c.lessonUrl + '" target="_blank" class="link-btn btn-lesson">' + svgBook + '<span>Open</span></a>';
+                html += '<button class="copy-btn" data-url="' + c.lessonUrl + '" title="Copy link">' + svgCopy + '</button>';
+            } else {
+                html += '<span class="coming">Coming soon</span>';
+            }
+            html += '</div></td>';
+
+            // Recording
+            html += '<td><div class="link-group">';
+            if (c.recordingUrl) {
+                html += '<a href="' + c.recordingUrl + '" target="_blank" class="link-btn btn-recording">' + svgPlay + '<span>Watch</span></a>';
+                html += '<button class="copy-btn" data-url="' + c.recordingUrl + '" title="Copy link">' + svgCopy + '</button>';
+            } else {
+                html += '<span class="coming">Coming soon</span>';
+            }
+            html += '</div></td>';
+
+            html += '</tr>';
+        });
+
+        tbody.innerHTML = html;
+        resultCount.textContent = count + ' / ' + classes.length;
+        noResults.classList.toggle('show', count === 0);
+
+        // Copy handlers
+        document.querySelectorAll('.copy-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var url = this.getAttribute('data-url');
+                var button = this;
+                navigator.clipboard.writeText(url).then(function() {
+                    button.innerHTML = svgCheck;
+                    button.classList.add('copied');
+                    var r = button.getBoundingClientRect();
+                    tooltip.style.left = (r.left + r.width/2 - 30) + 'px';
+                    tooltip.style.top = (r.top - 34) + 'px';
+                    tooltip.classList.add('show');
+                    setTimeout(function() {
+                        button.innerHTML = svgCopy;
+                        button.classList.remove('copied');
+                        tooltip.classList.remove('show');
+                    }, 1500);
+                }).catch(function() {
+                    var ta = document.createElement('textarea');
+                    ta.value = url;
+                    ta.style.cssText = 'position:fixed;opacity:0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    button.innerHTML = svgCheck;
+                    button.classList.add('copied');
+                    setTimeout(function() {
+                        button.innerHTML = svgCopy;
+                        button.classList.remove('copied');
+                    }, 1500);
+                });
+            });
+        });
+    }
+
+    renderTable('');
+    searchInput.addEventListener('input', function() { renderTable(this.value); });
+    </script>
+</body>
+</html>
