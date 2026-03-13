@@ -421,6 +421,21 @@
             date: "Mar 4",
             lessonUrl: "https://claude.ai/public/artifacts/b9bf4220-ae04-4df8-aebb-a620a3b01a97",
             recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-march-3-2026"
+        },
+        {
+            num: "Q&A",
+            title: "Recap & Q&A Session",
+            date: "Mar 10",
+            lessonUrl: "",
+            noLesson: true,
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-march-10-2026"
+        },
+        {
+            num: "17",
+            title: "Position Sizing Fundamentals",
+            date: "Mar 11",
+            lessonUrl: "https://claude.ai/public/artifacts/3513d7c3-abd1-4c57-8218-6309dfece0f3",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-march-11-2026"
         }
         // ↓ ADD NEW CLASSES HERE ↓
     ];
@@ -457,6 +472,8 @@
             if (c.lessonUrl) {
                 html += '<a href="' + c.lessonUrl + '" target="_blank" class="link-btn btn-lesson">' + svgBook + '<span>Open</span></a>';
                 html += '<button class="copy-btn" data-url="' + c.lessonUrl + '" title="Copy link">' + svgCopy + '</button>';
+            } else if (c.noLesson) {
+                html += '<span class="coming" style="font-style:normal;color:var(--text-muted);">—</span>';
             } else {
                 html += '<span class="coming">Coming soon</span>';
             }
