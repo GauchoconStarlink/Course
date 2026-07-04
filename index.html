@@ -251,9 +251,190 @@
             z-index: 1000;
         }
         .tooltip.show { opacity: 1; }
+
+        /* === LOGIN GATE === */
+        #login-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        #login-gate.hidden { display: none; }
+        .login-card {
+            width: 100%;
+            max-width: 380px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+        }
+        .login-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .login-card h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .login-card p.sub {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            margin-bottom: 22px;
+        }
+        .login-card input[type="email"] {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .login-card input[type="email"]::placeholder { color: var(--text-muted); }
+        .login-card input[type="email"]:focus { border-color: var(--accent); }
+        .login-remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 14px 2px 20px;
+            font-size: 0.84rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            user-select: none;
+        }
+        .login-remember input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: filter 0.15s;
+        }
+        .login-btn:hover { filter: brightness(1.1); }
+        .login-error {
+            display: none;
+            color: #f87171;
+            font-size: 0.8rem;
+            margin-top: 12px;
+        }
+        .login-error.show { display: block; }
+        .login-note {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 18px;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
+    <!-- ===== LOGIN GATE ===== -->
+    <div id="login-gate">
+        <div class="login-card">
+            <div class="login-badge">Decentralized Masters</div>
+            <h2>Beginner Trading Course</h2>
+            <p class="sub">Enter your email to access the class directory.</p>
+            <input type="email" id="loginEmail" placeholder="you@email.com" autocomplete="email" />
+            <label class="login-remember">
+                <input type="checkbox" id="loginRemember" checked />
+                Remember me on this device
+            </label>
+            <button class="login-btn" id="loginBtn">Log In</button>
+            <div class="login-error" id="loginError">Please enter a valid email address.</div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        // ==== Where access is logged. Paste your Google Apps Script /exec URL below. ====
+        // Leave blank ("") and the gate still works — it just won't record emails until set.
+        var LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbysoCw5uhsCOzPBCku6sLfzMMQiAGJ7lit9CdWG1D92Ees18X-MA8xD4Ojugd-qw_pz/exec";
+
+        var STORAGE_KEY = "dm_course_email";
+        var gate = document.getElementById("login-gate");
+        var emailInput = document.getElementById("loginEmail");
+        var rememberBox = document.getElementById("loginRemember");
+        var loginBtn = document.getElementById("loginBtn");
+        var errorMsg = document.getElementById("loginError");
+
+        function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+        function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+        function safeRemove(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+        function validEmail(v) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+        }
+
+        function logAccess(email, eventType) {
+            if (!LOG_ENDPOINT) return;
+            try {
+                var body = new URLSearchParams();
+                body.append("email", email);
+                body.append("event", eventType);
+                body.append("ua", navigator.userAgent);
+                body.append("time", new Date().toISOString());
+                fetch(LOG_ENDPOINT, { method: "POST", mode: "no-cors", body: body });
+            } catch (e) {}
+        }
+
+        function openCourse() {
+            gate.classList.add("hidden");
+        }
+
+        // Auto-enter if a remembered email exists
+        var saved = safeGet(STORAGE_KEY);
+        if (saved && validEmail(saved)) {
+            logAccess(saved, "open");
+            openCourse();
+        }
+
+        function attemptLogin() {
+            var email = (emailInput.value || "").trim().toLowerCase();
+            if (!validEmail(email)) {
+                errorMsg.classList.add("show");
+                return;
+            }
+            errorMsg.classList.remove("show");
+            if (rememberBox.checked) {
+                safeSet(STORAGE_KEY, email);
+            } else {
+                safeRemove(STORAGE_KEY);
+            }
+            logAccess(email, "login");
+            openCourse();
+        }
+
+        loginBtn.addEventListener("click", attemptLogin);
+        emailInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") attemptLogin();
+        });
+    })();
+    </script>
+
     <div class="header">
         <div class="header-badge">Decentralized Masters</div>
         <h1>Beginner Trading Course</h1>
@@ -550,6 +731,66 @@
             lessonUrl: "",
             noLesson: true,
             recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-may-27-2026"
+        },
+        {
+            num: "Demo",
+            title: "Live Trading Demo",
+            date: "Jun 2",
+            lessonUrl: "",
+            noLesson: true,
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-2-2026"
+        },
+        {
+            num: "Demo",
+            title: "Live Trading Demo",
+            date: "Jun 3",
+            lessonUrl: "",
+            noLesson: true,
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-3-2026"
+        },
+        {
+            num: "Special",
+            title: "My Trading Journey & Track Record",
+            date: "Jun 9",
+            lessonUrl: "",
+            noLesson: true,
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-9-2026"
+        },
+        {
+            num: "Q&A",
+            title: "Recap & Q&A Session",
+            date: "Jun 10",
+            lessonUrl: "",
+            noLesson: true,
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-10-2026"
+        },
+        {
+            num: "30",
+            title: "Minervini's VCP \u2014 Volatility Contraction Pattern",
+            date: "Jun 16",
+            lessonUrl: "https://claude.ai/public/artifacts/f6d2724a-1d6a-4b34-963f-08ef4db21eaf",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-16-2026"
+        },
+        {
+            num: "30.2",
+            title: "Minervini's VCP \u2014 Part 2",
+            date: "Jun 17",
+            lessonUrl: "https://claude.ai/public/artifacts/f6d2724a-1d6a-4b34-963f-08ef4db21eaf",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-june-17-2026"
+        },
+        {
+            num: "31",
+            title: "The Red Dog Reversal (RDR)",
+            date: "Jun 30",
+            lessonUrl: "https://claude.ai/public/artifacts/ae32ff22-2061-442b-a1ef-bfd378d2b51c",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jun-30-2026"
+        },
+        {
+            num: "31.2",
+            title: "The Red Dog Reversal \u2014 Part 2",
+            date: "Jul 1",
+            lessonUrl: "https://claude.ai/public/artifacts/ae32ff22-2061-442b-a1ef-bfd378d2b51c",
+            recordingUrl: "https://decentralized-masters.circle.so/c/live-trading-recordings/juan-s-beginner-trading-room-jul-1-2026"
         }
     ];
 
