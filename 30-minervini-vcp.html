@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 30: Minervini's VCP - Volatility Contraction Pattern</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.65; overflow-x: hidden; }
+.container { max-width: 1280px; margin: 0 auto; padding: 20px; }
+.draft-banner { background: #fff7ed; border: 1px solid #fdba74; color: #9a3412; padding: 10px 16px; border-radius: 8px; margin-bottom: 18px; font-size: 0.9em; }
+.draft-banner strong { color: #7c2d12; }
+/* Header */
+.header { padding: 70px 30px 50px; background: #f8f8f8; border-bottom: 2px solid #e0e0e0; margin-bottom: 40px; }
+.header h1 { font-size: 3em; margin-bottom: 16px; color: #1a1a1a; font-weight: 700; letter-spacing: -0.02em; }
+.header .subtitle { font-size: 1.35em; color: #666; margin-bottom: 12px; font-weight: 400; }
+.header .meta { font-size: 0.95em; color: #999; text-transform: uppercase; letter-spacing: 0.08em; }
+/* Navigation */
+.nav { display: flex; gap: 8px; margin-bottom: 50px; flex-wrap: wrap; border-bottom: 2px solid #e0e0e0; padding-bottom: 2px; }
+.nav-btn { padding: 10px 16px; background: transparent; border: none; color: #888; cursor: pointer; transition: color 0.2s; font-size: 0.93em; font-weight: 500; border-bottom: 2px solid transparent; }
+.nav-btn:hover { color: #444; }
+.nav-btn.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+/* Section */
+.section { background: #fafafa; padding: 50px 40px; margin-bottom: 40px; border: 1px solid #e0e0e0; display: none; }
+.section.active { display: block; }
+.section h2 { font-size: 2.1em; margin-bottom: 28px; color: #1a1a1a; font-weight: 600; letter-spacing: -0.01em; }
+.section h3 { font-size: 1.5em; margin-top: 42px; margin-bottom: 18px; color: #333; font-weight: 600; }
+.section h4 { font-size: 1.15em; margin-bottom: 12px; color: #1a1a1a; font-weight: 600; }
+.section p { font-size: 1.05em; margin-bottom: 18px; line-height: 1.7; color: #555; }
+.section ul, .section ol { margin: 0 0 18px 0; padding-left: 22px; color: #555; }
+.section li { margin: 8px 0; line-height: 1.6; }
+/* Cards */
+.comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 35px 0; }
+.card { background: #fff; border: 1px solid #d0d0d0; padding: 32px; }
+.card h4 { margin-bottom: 16px; }
+.card ul { list-style: none; padding-left: 0; }
+.card li { padding: 9px 0 9px 18px; position: relative; color: #555; border-bottom: 1px solid #f0f0f0; }
+.card li:last-child { border-bottom: none; }
+.card li:before { content: "•"; position: absolute; left: 0; color: #999; }
+/* Highlight / quote / warning */
+.highlight { background: #f8f8f8; border-left: 3px solid #666; padding: 22px 28px; margin: 28px 0; }
+.highlight strong { color: #1a1a1a; }
+.highlight p { color: #555; margin-bottom: 0; }
+.trader-quote { background: #fafafa; border-left: 4px solid #333; padding: 24px 32px; margin: 32px 0; font-style: italic; }
+.trader-quote .quote-text { font-size: 1.12em; color: #333; line-height: 1.7; margin-bottom: 12px; }
+.trader-quote .quote-author { font-size: 0.92em; color: #666; font-style: normal; font-weight: 600; text-align: right; }
+.warning-box { background: #fff5f5; border: 1px solid #f0caca; border-left: 4px solid #d9534f; padding: 24px 30px; margin: 28px 0; }
+.warning-box h4 { color: #b02a2a; }
+.crypto-box { background: #f4f9f4; border: 1px solid #cfe6cf; border-left: 4px solid #2e9e5b; padding: 24px 30px; margin: 28px 0; }
+.crypto-box h4 { color: #1f7a45; }
+.crypto-box p, .crypto-box li { color: #3a5a45; }
+/* Footprint mono box */
+.footprint { font-family: 'SF Mono', Consolas, monospace; background: #1a1a1a; color: #f5f5f5; padding: 18px 24px; border-radius: 8px; margin: 22px 0; font-size: 1.05em; letter-spacing: 0.02em; }
+.footprint .lab { color: #f5b942; }
+/* checklist */
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding: 10px 0 10px 30px; position: relative; border-bottom: 1px solid #ececec; }
+.checklist li:before { content: "✓"; position: absolute; left: 0; color: #2e9e5b; font-weight: 700; }
+.dis li:before { content: "✕"; color: #d9534f; }
+/* table */
+table { width: 100%; border-collapse: collapse; margin: 24px 0; background: #fff; border: 1px solid #d0d0d0; }
+th, td { padding: 12px 14px; text-align: left; border: 1px solid #e0e0e0; font-size: 0.97em; vertical-align: top; }
+th { background: #f4f4f4; color: #1a1a1a; font-weight: 600; }
+td { color: #555; }
+.badge { display: inline-block; font-size: 0.72em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 4px; vertical-align: middle; }
+.badge.mv { background: #e7effb; color: #2657a8; }
+.badge.cc { background: #fdf0e3; color: #9a5a12; }
+.steps { counter-reset: s; list-style: none; padding-left: 0; }
+.steps li { counter-increment: s; padding: 14px 0 14px 48px; position: relative; border-bottom: 1px solid #ececec; }
+.steps li:before { content: counter(s); position: absolute; left: 0; top: 12px; width: 30px; height: 30px; background: #1a1a1a; color: #fff; border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; font-size: 0.9em; }
+.footer { text-align: center; padding: 50px 20px 30px; margin-top: 60px; border-top: 2px solid #e0e0e0; color: #888; }
+.footer p { margin: 8px 0; }
+.src { font-size: 0.85em; color: #777; text-align: left; max-width: 900px; margin: 0 auto; }
+.src h4 { color: #555; margin: 18px 0 8px; }
+@media (max-width: 768px) {
+  .header h1 { font-size: 2.1em; }
+  .section { padding: 30px 22px; }
+  .section h2 { font-size: 1.7em; }
+  .comparison { grid-template-columns: 1fr; }
+}
+/* Download button */
+#dlBtn { position: fixed; top: 18px; right: 18px; z-index: 9999; display: flex; align-items: center; gap: 8px; padding: 11px 20px; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.25); font-family: inherit; }
+#dlBtn:hover { background: #333; }
+@media print { #dlBtn, .nav, .draft-banner { display: none !important; } .section { display: block !important; border: none; background: #fff; padding: 20px 0; } .header { padding: 20px 0; background: #fff; } }
+</style>
+</head>
+<body>
+<button id="dlBtn" onclick="printAll()">⤓ Print / Save PDF</button>
+<div class="container">
+
+  <div class="header">
+    <h1>📐 Minervini's VCP</h1>
+    <div class="subtitle">Class 30: The Volatility Contraction Pattern — Our First "Edge"</div>
+    <div class="meta">Phase 7 · Strategies &amp; Edges · Faithful to Minervini → Applied to Crypto</div>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn active" onclick="showSection('overview', this)">Overview</button>
+    <button class="nav-btn" onclick="showSection('what', this)">What Is a VCP</button>
+    <button class="nav-btn" onclick="showSection('footprint', this)">Footprint &amp; Contractions</button>
+    <button class="nav-btn" onclick="showSection('pivot', this)">Volume &amp; the Pivot</button>
+    <button class="nav-btn" onclick="showSection('context', this)">SEPA &amp; Trend Template</button>
+    <button class="nav-btn" onclick="showSection('risk', this)">Stops &amp; Sizing</button>
+    <button class="nav-btn" onclick="showSection('fail', this)">When It Fails</button>
+    <button class="nav-btn" onclick="showSection('examples', this)">Worked Examples</button>
+    <button class="nav-btn" onclick="showSection('crypto', this)">Applying to Crypto</button>
+    <button class="nav-btn" onclick="showSection('takeaways', this)">Key Takeaways</button>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div id="overview" class="section active">
+    <h2>📚 Welcome to Phase 7: Edges</h2>
+    <div class="highlight">
+      <p><strong>Where we are:</strong> You now know how to read charts, manage risk, control emotions, and execute and manage a trade. Phase 7 is where we learn <strong>specific setups — actual edges</strong> you can hunt for. We start with the most famous momentum setup of the modern era: <strong>Mark Minervini's Volatility Contraction Pattern (VCP)</strong>.</p>
+    </div>
+
+    <h3>Who is Mark Minervini?</h3>
+    <p>A US stock trader, two-time U.S. Investing Champion, and author of <em>Trade Like a Stock Market Wizard</em> (2013) and <em>Think &amp; Trade Like a Champion</em> (2016). The VCP is his signature entry pattern, and it sits inside his broader method called <strong>SEPA</strong> (Specific Entry Point Analysis).</p>
+
+    <h3>What we'll cover today</h3>
+    <div class="comparison">
+      <div class="card">
+        <h4>🎯 The Pattern</h4>
+        <ul>
+          <li>What a VCP actually is — and what it reveals</li>
+          <li>The "footprint" notation</li>
+          <li>Counting contractions &amp; how they tighten</li>
+          <li>Volume dry-up and the pivot point</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🧱 The Context</h4>
+        <ul>
+          <li>How VCP fits inside SEPA</li>
+          <li>The Trend Template &amp; Stage 2 uptrends</li>
+          <li>Where to place your stop</li>
+          <li>How tightness lets you size bigger at the same risk</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>₿ The Application</h4>
+        <ul>
+          <li>When a VCP is disqualified or fails</li>
+          <li>What to do when a breakout fails</li>
+          <li>How to adapt VCP to crypto (and what changes)</li>
+          <li>Your homework: find 3 VCPs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <p><strong>A note on honesty:</strong> Minervini developed VCP on <em>stocks</em>. We're going to learn it exactly as he teaches it first, then translate it to crypto. Some popular "VCP rules" floating around online are practitioner conventions, not Minervini's own stated numbers — wherever that's the case, this class flags it: <span class="badge mv">Minervini</span> = his own teaching, <span class="badge cc">commonly cited</span> = community convention to use as a guideline.</p>
+    </div>
+
+    <div class="trader-quote">
+      <div class="quote-text">"My goal is not to buy at the lowest or cheapest price but at the 'right' price, just as a stock is ready to move significantly higher."</div>
+      <div class="quote-author">— Mark Minervini, <em>Trade Like a Stock Market Wizard</em></div>
+    </div>
+  </div>
+
+  <!-- WHAT IS A VCP -->
+  <div id="what" class="section">
+    <h2>🔍 What Is a VCP?</h2>
+    <p>A <strong>Volatility Contraction Pattern</strong> is a consolidation (a "base") where price swings get <strong>progressively smaller from left to right</strong>, while <strong>volume dries up</strong> — until the stock is coiled tight and ready to break out. Think of a spring being compressed: the tighter it gets, the more explosive the release.</p>
+
+    <div class="highlight">
+      <p><strong>Minervini's key insight <span class="badge mv">Minervini</span>:</strong> The VCP is the <em>effect</em>, not the <em>cause</em>. The pattern works because you are literally watching <strong>supply and demand resolve in real time</strong>. As each swing contracts on lighter volume, sellers are being exhausted and shares move from <strong>weak hands to strong hands</strong> (institutions). When supply stops coming to market, the next buyer has to lift the price — that's the breakout.</p>
+    </div>
+
+    <h3>The "shakeout"</h3>
+    <p>Within the base, price often dips just <strong>below a prior swing low</strong>, triggering the stop-losses of earlier buyers, then quickly recovers. Minervini calls this a <strong>shakeout</strong> — weak holders get "shaken out," leaving stronger hands in control. A base showing one or more clean shakeouts is generally <em>higher</em> probability, not lower.</p>
+
+    <h3>What it looks like</h3>
+    <ul>
+      <li><strong>Left side:</strong> larger, sharper price swings (more fear/volatility).</li>
+      <li><strong>Moving right:</strong> each pullback is shallower than the last.</li>
+      <li><strong>Right side:</strong> very tight, quiet price action on very low volume.</li>
+      <li><strong>The release:</strong> price breaks out through the top of the final contraction on a surge of volume.</li>
+    </ul>
+
+    <div class="trader-quote">
+      <div class="quote-text">"You want to get on board when institutional money is pouring into a stock and lifting it significantly higher."</div>
+      <div class="quote-author">— Mark Minervini, <em>Trade Like a Stock Market Wizard</em></div>
+    </div>
+
+    <div class="highlight">
+      <p><strong>Connects to what you already know:</strong> a VCP isn't a brand-new shape — it's a <em>lens</em>. A cup-with-handle, a flat base, a double bottom, an ascending triangle — any of them can <em>be</em> a VCP if the swings contract and volume dries up. You're already equipped: this builds directly on <em>support &amp; resistance</em> (Class 4), <em>chart patterns</em> (Classes 6–7), <em>volume</em> (Class 14), and <em>breakouts</em> (Class 1).</p>
+    </div>
+  </div>
+
+  <!-- FOOTPRINT -->
+  <div id="footprint" class="section">
+    <h2>🔢 The Footprint &amp; Counting Contractions</h2>
+    <p>Minervini uses a shorthand "<strong>technical footprint</strong>" to describe any VCP in one line — so you can compare bases objectively instead of eyeballing.</p>
+
+    <div class="footprint">
+      <span class="lab">Example footprint:</span> &nbsp; 19W &nbsp; 19/7 &nbsp; 4T
+    </div>
+    <ul>
+      <li><strong>19W</strong> — the base is <strong>19 weeks</strong> long.</li>
+      <li><strong>19/7</strong> — the <strong>largest</strong> contraction was ~19% deep; the <strong>smallest</strong> (final) was ~7%.</li>
+      <li><strong>4T</strong> — there were <strong>4 contractions</strong> in total.</li>
+    </ul>
+    <p style="font-size:0.95em;color:#777;">Note: the number before "T" is the <strong>count of contractions</strong>. (You'll sometimes hear "T = transitions" online — that specific wording isn't confirmed in Minervini's books, so just read it as the contraction count.) <span class="badge cc">commonly cited</span></p>
+
+    <h3>How many contractions?</h3>
+    <table>
+      <tr><th>Count</th><th>Read</th></tr>
+      <tr><td><strong>2–6</strong></td><td>Typical range Minervini describes. <span class="badge mv">Minervini</span></td></tr>
+      <tr><td><strong>3–4</strong></td><td>The usual "sweet spot" for a clean, mature base. <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td><strong>1 (sometimes 2)</strong></td><td>Often too little basing — less reliable. <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td><strong>&gt;6 / dragging on</strong></td><td>Indecision, stock going "dead," momentum fading. <span class="badge cc">commonly cited</span></td></tr>
+    </table>
+
+    <h3>How each contraction tightens</h3>
+    <p>This is the heart of the pattern: <strong>each successive contraction is roughly half the depth of the one before it.</strong> In Minervini's own words from an interview: <span class="badge mv">Minervini</span></p>
+    <div class="trader-quote">
+      <div class="quote-text">"The first correction might be 20%, 25%, 33%, and then it'll contract — usually the contractions are about half of the previous correction. So maybe it contracts to 10 or 15, and then contracts to 3, 4, 5 or 8%."</div>
+      <div class="quote-author">— Mark Minervini (interview)</div>
+    </div>
+    <p>So a textbook progression looks like:</p>
+    <div class="footprint">25% &nbsp;→&nbsp; 15% &nbsp;→&nbsp; 8% &nbsp; <span class="lab">(each ≈ half the prior)</span></div>
+    <p>What the shrinking percentages <em>mean</em>: volatility and available supply are drying up. Sellers are being used up while bigger buyers quietly accumulate. By the final, tight contraction, there's almost no one left to sell — the stock is coiled.</p>
+
+    <div class="warning-box">
+      <h4>⚠️ The contractions MUST get smaller</h4>
+      <p>If a later pullback is <em>deeper</em> than an earlier one (e.g., 12% → 15% → 8%), it's <strong>not</strong> a valid VCP — the volatility didn't actually contract in sequence. Minervini's spirit here: if you have to talk yourself into why it's a VCP, it probably isn't one.</p>
+    </div>
+
+    <h3>Depth &amp; duration</h3>
+    <ul>
+      <li><strong>Overall base depth and length vary</strong> — that's exactly why the footprint <em>records</em> them rather than fixing them. <span class="badge mv">Minervini</span></li>
+      <li>A common generalization is <strong>~6–12 weeks</strong> with <strong>3–4</strong> contractions, but treat duration as flexible, not a hard rule. <span class="badge cc">commonly cited</span></li>
+      <li>Forms <strong>too fast</strong> (&lt; ~3 weeks) → little real accumulation. <strong>Too long</strong> with too many contractions → loss of momentum. <span class="badge cc">commonly cited</span></li>
+    </ul>
+  </div>
+
+  <!-- VOLUME & PIVOT -->
+  <div id="pivot" class="section">
+    <h2>📉➡️📈 Volume &amp; the Pivot Point</h2>
+
+    <h3>Volume must dry up</h3>
+    <p>Price tightening alone isn't enough — <strong>volume has to contract with it</strong>. Each pullback should come on lighter volume than the last, and the <strong>final, tightest contraction should show extremely low volume</strong> — so quiet you'd almost think trading had stopped. That dry-up is the tell that <strong>sellers are exhausted</strong>. <span class="badge mv">Minervini</span></p>
+
+    <h3>The pivot point = the "line of least resistance"</h3>
+    <p>The <strong>pivot</strong> is the <strong>high of the final, tightest contraction</strong>. Minervini (borrowing Jesse Livermore's phrase) calls this the <strong>line of least resistance</strong> — the price level that "calls for action." Above it, there's almost no overhead supply, so the path of least resistance is up.</p>
+    <div class="highlight">
+      <p><strong>Definition <span class="badge mv">Minervini</span>:</strong> "A proper pivot point indicates the fulfillment of a stock's consolidation and the threshold of its next advance… the optimal buy point, or the line of least resistance."</p>
+    </div>
+
+    <h3>The entry trigger</h3>
+    <ol class="steps">
+      <li><strong>Price breaks up through the pivot</strong> (the high of the final contraction).</li>
+      <li><strong>Volume surges</strong> well above average on the breakout — this confirms <em>institutional</em> demand has overwhelmed supply. A breakout on weak volume is suspect.</li>
+      <li><strong>You buy into the breakout</strong>, near the pivot — "on the way up."</li>
+    </ol>
+    <p style="font-size:0.95em;color:#777;">The popular thresholds — "breakout volume ~40–50%+ above average," and "enter within ~5% of the pivot" — are <span class="badge cc">commonly cited</span> guidelines, not numbers Minervini states verbatim. Use them as sensible defaults, not gospel.</p>
+
+    <div class="trader-quote">
+      <div class="quote-text">"To compound your money, and not your mistakes, your goal is to buy on the way up — not on the way down."</div>
+      <div class="quote-author">— Mark Minervini, <em>Think &amp; Trade Like a Champion</em></div>
+    </div>
+
+    <h3>Don't chase</h3>
+    <p>The entry is the <strong>pivot</strong> — not several percent above it. If you miss the buy zone and the stock is already extended, <strong>let it go</strong> or wait for the next setup. Chasing an extended breakout wrecks your risk-to-reward because your stop is now far away.</p>
+    <div class="highlight">
+      <p><strong>After the breakout <span class="badge cc">commonly cited</span>:</strong> a healthy move should hold above its short-term moving average (e.g., the 20-day) and <em>not</em> close back inside the base. If it immediately loosens up and falls back below the pivot, the breakout is failing.</p>
+    </div>
+  </div>
+
+  <!-- CONTEXT: SEPA & TREND TEMPLATE -->
+  <div id="context" class="section">
+    <h2>🧱 The Context: SEPA &amp; the Trend Template</h2>
+    <p>A VCP is only worth trading in the <strong>right context</strong>. Minervini never trades the pattern in isolation — it's the <strong>entry</strong> piece of his bigger system, <strong>SEPA</strong>.</p>
+
+    <h3>SEPA — Specific Entry Point Analysis <span class="badge mv">Minervini</span></h3>
+    <div class="comparison">
+      <div class="card"><h4>1. Trend</h4><ul><li>Only buy stocks already in a confirmed uptrend (Stage 2). Trend comes first.</li></ul></div>
+      <div class="card"><h4>2. Fundamentals</h4><ul><li>Strong, accelerating earnings &amp; sales; a real reason institutions want it.</li></ul></div>
+      <div class="card"><h4>3. Catalyst</h4><ul><li>A reason for the move now — new product, earnings surprise, industry tailwind.</li></ul></div>
+      <div class="card"><h4>4. Entry Point</h4><ul><li><strong>This is the VCP</strong> — the precise, low-risk pivot.</li></ul></div>
+      <div class="card"><h4>5. Exit Point</h4><ul><li>Pre-defined stop (loss) and profit-taking plan before you enter.</li></ul></div>
+    </div>
+
+    <h3>The Trend Template — the 8 gates for a Stage 2 uptrend <span class="badge mv">Minervini</span></h3>
+    <p>Before a VCP "counts," the stock should pass Minervini's Trend Template (from <em>Think &amp; Trade Like a Champion</em>):</p>
+    <ol class="checklist">
+      <li>Price is above both the <strong>150-day</strong> and <strong>200-day</strong> moving averages.</li>
+      <li>The <strong>150-day MA is above the 200-day MA</strong>.</li>
+      <li>The <strong>200-day MA is trending up</strong> (at least ~1 month; ideally several).</li>
+      <li>The <strong>50-day MA is above both</strong> the 150-day and 200-day MAs.</li>
+      <li>Price is <strong>above the 50-day MA</strong>.</li>
+      <li>Price is at least <strong>~25% above its 52-week low</strong>.</li>
+      <li>Price is within <strong>~25% of its 52-week high</strong> (closer is better).</li>
+      <li><strong>Relative Strength rank ≥ 70</strong> (preferably 80s–90s) — i.e., it's outperforming most other stocks.</li>
+    </ol>
+    <div class="highlight">
+      <p><strong>Why this matters:</strong> this is "<em>top-right trading</em>" — buying strength near the highs in a confirmed uptrend, <em>not</em> bottom-fishing. A perfect-looking VCP shape that's forming <strong>below</strong> the 200-day MA, down near the lows, is the single most common rookie mistake. The trend gate comes first.</p>
+    </div>
+  </div>
+
+  <!-- RISK -->
+  <div id="risk" class="section">
+    <h2>🛡️ Stops &amp; Position Sizing</h2>
+    <p>Here's <em>why</em> Minervini loves the VCP: the tight final contraction lets him place a <strong>very close stop</strong>, which means he can take a <strong>meaningful position size</strong> while keeping dollar risk small.</p>
+
+    <h3>Where the stop goes</h3>
+    <ul>
+      <li>Buy at the <strong>pivot</strong>; place the initial stop <strong>just below the low of the final contraction</strong> (the tight area you bought out of). <span class="badge mv">Minervini</span></li>
+      <li>Because that final contraction is tight, your stop might be only a few percent away — a precise, logical risk level.</li>
+    </ul>
+
+    <h3>The tightness → size relationship (the key idea)</h3>
+    <div class="highlight">
+      <p>Dollar risk = <strong>(entry − stop) × number of shares</strong>. If you risk a fixed amount of your account per trade, then a <strong>tighter stop lets you buy more shares for the same risk.</strong> The VCP's tight pivot is what makes "back up the truck" sizing <em>safe</em> — the position is bigger, but the dollars at risk are still small.</p>
+    </div>
+
+    <h3>Loss discipline <span class="badge mv">Minervini</span> / <span class="badge cc">commonly cited</span></h3>
+    <table>
+      <tr><th>Rule</th><th>Detail</th></tr>
+      <tr><td>Hard max loss</td><td>Cut around <strong>7–8%</strong> in normal conditions; tighter (~5–6%) in tough markets; an absolute "uncle point" near 10%. <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td>Realized average loss</td><td>Because tight setups stop you out early, his actual <em>average</em> loss runs small (~3–4% in good markets). <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td>Risk per trade</td><td>A fixed slice of equity — roughly <strong>0.5%–2.5%</strong> — small/test size first, scale up only as it works. <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td>Breakeven</td><td>Once up ~<strong>2R</strong> (twice your risk), never let a winner become a loser — move stop to breakeven, then trail. <span class="badge cc">commonly cited</span></td></tr>
+      <tr><td>Adding</td><td><strong>Add to winners only</strong> — never average down into a loser.</td></tr>
+    </table>
+
+    <div class="trader-quote">
+      <div class="quote-text">"It's better to lose correctly than to win incorrectly."</div>
+      <div class="quote-author">— Mark Minervini</div>
+    </div>
+    <p>Translation: a small loss taken by the rules is a <em>good</em> trade. A win you got by breaking your rules (moving a stop, oversizing) is a <em>bad</em> trade that will eventually cost you.</p>
+  </div>
+
+  <!-- FAIL -->
+  <div id="fail" class="section">
+    <h2>❌ When a VCP Is Disqualified or Fails</h2>
+
+    <h3>Disqualifiers — it's not a real VCP if…</h3>
+    <ul class="checklist dis">
+      <li><strong>Contractions don't tighten</strong> in sequence (a later pullback deeper than an earlier one).</li>
+      <li><strong>Volume doesn't dry up</strong> — heavy volume on the down-legs means selling/distribution, not accumulation.</li>
+      <li><strong>No Stage 2 trend</strong> — the base is below the 200-day MA / down near the lows (bottom-fishing).</li>
+      <li><strong>Base is too loose/sloppy</strong> with no clean, obvious pivot.</li>
+      <li><strong>Forms too fast</strong> (&lt; ~3 weeks) or <strong>drags on</strong> with too many contractions.</li>
+      <li><strong>Late-stage base</strong> (3rd/4th base of a long advance) — riskier; Minervini's rule: if you take one, <em>"buy small positions so as not to get pummeled if they fail."</em> <span class="badge mv">Minervini</span></li>
+    </ul>
+
+    <h3>The breakout fails — now what?</h3>
+    <ul>
+      <li><strong>Breakout on weak volume</strong> → suspect; often retail, not institutions.</li>
+      <li><strong>Price reverses back below the pivot / last-contraction low</strong> → the line of least resistance has flipped down. <strong>Exit.</strong></li>
+      <li><strong>Honor the stop. Never widen it.</strong> Widening a violated stop is the fastest way to blow up.</li>
+      <li><strong>Let it re-base.</strong> A failed setup can form a fresh base in a few weeks — a broken trade today doesn't mean the stock is dead. Re-evaluate later.</li>
+      <li><strong>Multiple attempts are normal.</strong> The best stocks sometimes take 2–4 tries before the breakout sticks — each attempt risked small.</li>
+    </ul>
+
+    <div class="trader-quote">
+      <div class="quote-text">"If you find yourself getting stopped out repeatedly, either your stock-selection criteria are flawed, or the general market environment is hostile."</div>
+      <div class="quote-author">— Mark Minervini</div>
+    </div>
+
+    <div class="warning-box">
+      <h4>Two things people wrongly credit to Minervini</h4>
+      <p>• <em>"Don't argue with the market"</em> comes from Livermore / <em>Reminiscences of a Stock Operator</em>, not Minervini.<br>
+      • The <em>"wedging-up handle"</em> faulty-base rule is a William O'Neil / IBD teaching, often taught alongside VCP but not specifically Minervini's. We'll teach those under their real authors.</p>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div id="examples" class="section">
+    <h2>🔬 Worked Examples — Three Charts to Dissect</h2>
+    <p>Minervini teaches on <strong>stocks</strong>, so these canonical examples are equities — but the read is identical to crypto. For each, we'll do exactly what you'll do live: count the contractions, write the footprint, find the pivot, place the stop, and judge the volume. Apply the crypto checklist (next tab) as you go.</p>
+
+    <h3>Example 1 — WFRD (Weatherford): reading the footprint</h3>
+    <figure style="margin:0 0 10px;">
+      <img src="https://www.chartmill.com/images/uploads/WFRD_chart_2_172d30a5b1.webp" alt="Weatherford WFRD chart showing two volatility contraction patterns with footprints" loading="lazy" style="width:100%;border:1px solid #d0d0d0;border-radius:6px;">
+      <figcaption style="font-size:0.82em;color:#888;margin-top:6px;">Chart: ChartMill — annotated WFRD example. Two consecutive VCPs.</figcaption>
+    </figure>
+    <p>Two separate VCPs formed in the same stock — you read each base on its own. In plain English:</p>
+    <ul>
+      <li><strong>VCP #1 (the big base on the left):</strong> ran about <strong>19 weeks</strong> with <strong>4 pullbacks</strong>, each shallower than the last — roughly <strong>19% → 15% → 13% → 7%</strong>. Shaped like an ascending triangle.</li>
+      <li><strong>VCP #2 (the small base on the right):</strong> a quick <strong>~3 weeks</strong> with just <strong>2 pullbacks</strong> — about <strong>7% then 4.5%</strong>. A tight symmetrical triangle.</li>
+    </ul>
+    <div class="highlight"><p style="margin:0;"><strong>That shorthand you saw earlier (<code>19W&nbsp;19/7&nbsp;4T</code>) decoded:</strong> <strong>19W</strong> = 19 <strong>w</strong>eeks long · <strong>19/7</strong> = biggest pullback 19%, smallest 7% · <strong>4T</strong> = 4 contractions. It's just an optional way to jot down what a base looks like — you don't have to use it.</p></div>
+    <p><strong>Dissect it:</strong> each pullback is shallower than the one before, down-day volume never tops up-day volume and dries up into the breakout, and the pivot is the high of the final contraction. <span class="badge mv">Minervini</span></p>
+    <div class="crypto-box"><p style="margin:0;"><strong>Crypto read:</strong> identical on a BTC or ETH daily — just confirm Bitcoin's own trend is up first, and check the coin's strength on its /BTC pair.</p></div>
+
+    <h3>Example 2 — AEO (American Eagle): the pivot &amp; the breakout</h3>
+    <figure style="margin:0 0 10px;">
+      <img src="https://www.chartmill.com/images/uploads/AEO_chart_1_5fdee1e4b4.webp" alt="American Eagle AEO daily chart showing a tight VCP near the highs, the lowest-volume day during the pattern, and a higher-volume breakout" loading="lazy" style="width:100%;border:1px solid #d0d0d0;border-radius:6px;">
+      <figcaption style="font-size:0.82em;color:#888;margin-top:6px;">Chart: ChartMill — AEO daily. A tight VCP near the highs with the volume cues marked.</figcaption>
+    </figure>
+    <p>This is the textbook <strong>entry</strong> picture. AEO trends up, then coils into a tight contraction right under a clear ceiling — the flat blue line is the <strong>pivot</strong>.</p>
+    <ul>
+      <li><strong>Volume dries up</strong> inside the base — the chart marks the <em>"lowest volume day during the VCP"</em> right before the breakout. Sellers are exhausted.</li>
+      <li><strong>The pivot</strong> is the top of that final contraction (the flat blue resistance line).</li>
+      <li><strong>The entry</strong> is the break up through the pivot — marked <em>"higher volume day during breakout."</em> Price clears the line on a <strong>volume surge</strong> = real demand stepping in. That's the trigger.</li>
+    </ul>
+    <p><strong>Dissect it:</strong> quiet, low-volume tightening → break through the pivot on expanding volume. No volume surge on the break, no trade. <span class="badge mv">Minervini</span></p>
+    <div class="crypto-box"><p style="margin:0;"><strong>Crypto read:</strong> same trigger on BTC/ETH — but confirm with a candle <em>close</em> through the pivot (not just a wick), and check the volume surge is real spot buying, not just perp churn.</p></div>
+
+    <h3>Example 3 — AM (Antero Midstream): shakeout, squat &amp; managing the stop</h3>
+    <figure style="margin:0 0 10px;">
+      <img src="https://www.chartmill.com/images/uploads/AM_chart_d21a296435.webp" alt="Antero Midstream AM daily chart annotated with a shakeout, breakout, squat, entry and a raised stop loss" loading="lazy" style="width:100%;border:1px solid #d0d0d0;border-radius:6px;">
+      <figcaption style="font-size:0.82em;color:#888;margin-top:6px;">Chart: ChartMill — AM daily, annotated with the shakeout, breakout, squat, entry and stops.</figcaption>
+    </figure>
+    <p>This is the messy-reality example — two things that scare beginners out of good trades, and how to handle both.</p>
+    <ul>
+      <li><strong>Shakeout</strong> (circled): inside the base, price dips <em>below</em> the recent swing low — tripping the stops of people who bought there (their <strong>SL</strong> is marked just under it) — then snaps right back. That fast recovery is a sign of <em>strength</em>, not a reason to bail.</li>
+      <li><strong>Breakout → Entry:</strong> price pushes up through the top of the base (the pivot) and you enter, initial stop under the last contraction.</li>
+      <li><strong>Squat:</strong> the breakout briefly stalls and dips back toward the line — Minervini's word for a wobbly, false-looking breakout. Because your stop sits below, you simply <strong>hold</strong> and let it resolve.</li>
+      <li><strong>New SL:</strong> once it's clearly working, the stop is trailed up under the most recent contraction to lock in the improving position.</li>
+    </ul>
+    <p><strong>Dissect it:</strong> shakeouts and squats are normal — the pre-set stop is exactly what lets you sit through them without panic-selling, and you trail it up only once price proves itself. <span class="badge mv">Minervini</span></p>
+    <div class="crypto-box"><p style="margin:0;"><strong>Crypto read:</strong> crypto wicks below obvious levels constantly to grab stops — this is that "stop-hunt." Set the stop a touch beyond the obvious swing low, prefer a candle <em>close</em> for confirmation, and don't get shaken out by a low-volume wick.</p></div>
+
+    <p style="font-size:0.82em;color:#888;">Chart images sourced from ChartMill's published Minervini guide (chartmill.com); the dissections are written from the price action.</p>
+  </div>
+
+  <!-- CRYPTO -->
+  <div id="crypto" class="section">
+    <h2>₿ Applying VCP to Crypto</h2>
+    <p>This is the part that matters most for us. Minervini built the VCP on <strong>stocks</strong>, but the <strong>engine of the pattern is pure supply &amp; demand</strong> — sellers drying up, weak hands handing off to strong hands — and that psychology is identical in crypto. So the <em>shape</em> and the <em>logic</em> translate directly to BTC, ETH and liquid large-caps. What changes is the <em>environment</em>: 24/7 trading, no earnings, Bitcoin-driven correlation, fragmented volume, and leverage. Let's go through each properly.</p>
+
+    <div class="crypto-box">
+      <h4>✅ What carries over unchanged</h4>
+      <ul>
+        <li>The <strong>contraction sequence</strong> — each pullback roughly half the last (e.g. 25% → 12% → 6%).</li>
+        <li><strong>Volume drying up</strong> into a tight, quiet final contraction.</li>
+        <li>The <strong>pivot = high of the final contraction</strong>; enter on the breakout as volume expands.</li>
+        <li><strong>Stop just below the last contraction</strong>; tight base → tight stop → controlled risk.</li>
+        <li><strong>Trend-first</strong> — never buy a VCP in a downtrend or below your long-term MAs (your Class 20 MA framework applies directly).</li>
+      </ul>
+    </div>
+
+    <h3>Crypto reality #1 — Bitcoin <em>is</em> your "general market"</h3>
+    <p>Minervini refuses to buy breakouts in a hostile market. In crypto, the "market" you check first isn't the S&amp;P — it's <strong>Bitcoin</strong>. ~70–80% of an altcoin's move is just its correlation (beta) to BTC. <span class="badge cc">commonly cited</span></p>
+    <ul>
+      <li><strong>Gate every alt VCP on the BTC chart.</strong> If BTC is in a confirmed uptrend (above your 200-day, higher highs/lows — your Class 12 structure work), alt VCPs are tradeable. If BTC is rolling over or sitting under a major resistance, <strong>stand down</strong> — the cleanest alt base will still get dragged down when BTC dumps.</li>
+      <li><strong>Watch the regime signals you already know:</strong> BTC dominance (rising dominance = money leaving alts), and <strong>funding rates</strong> (from Class 19) — euphoric, very high positive funding across the board is a risk-off warning even if the chart looks great.</li>
+      <li><strong>If Bitcoin itself is coiled in a tight base, wait.</strong> When BTC finally makes its big move, it drags every alt with it — so even a clean alt breakout can get overruled by Bitcoin's move. Let BTC break first, then trade the alts in the same direction.</li>
+    </ul>
+
+    <h3>Crypto reality #2 — Is the coin stronger than Bitcoin?</h3>
+    <p>Minervini only buys <strong>leaders</strong> — names outperforming the overall market. In crypto, "the market" is Bitcoin, so a leader is simply <strong>a coin that's stronger than BTC itself</strong>.</p>
+    <p><strong>How to check it in 10 seconds:</strong> on TradingView, switch the symbol from the dollar chart (e.g. <code>SOLUSDT</code>) to the <strong>Bitcoin-priced</strong> chart (<code>SOLBTC</code>). That shows the coin's price <em>measured in Bitcoin</em> instead of dollars.</p>
+    <ul>
+      <li>If the <code>SOLBTC</code> chart is <strong>flat or rising</strong> → the coin is keeping up with or beating Bitcoin → <strong>leader, good.</strong></li>
+      <li>If it's <strong>falling</strong> → the coin is <strong>weaker than Bitcoin</strong>, even when its dollar chart looks fine (because everything went up when BTC went up) → <strong>laggard, skip it.</strong></li>
+    </ul>
+    <p><strong>Bottom line:</strong> trade coins that are strong <em>against Bitcoin</em> — not coins that only look strong because Bitcoin dragged them up.</p>
+
+    <h3>Crypto reality #3 — Reading volume in a 24/7, fragmented market</h3>
+    <p>Volume dry-up is the heart of the VCP, and crypto volume is the messiest part of the translation. Be deliberate:</p>
+    <ul>
+      <li><strong>Use one deep venue or an aggregated feed.</strong> A single small exchange's volume is noise. Stick to major-venue or aggregated volume so the "dry-up then surge" is real, not an artifact.</li>
+      <li><strong>Ignore wash-traded low-caps.</strong> Fake volume makes a fake dry-up. If you can't trust the volume, you can't trade the VCP — skip it.</li>
+      <li><strong>Use Volume Delta / CVD (Class 14), not just raw volume.</strong> In the final contraction you want to see selling pressure fading (delta flattening); on the breakout you want a genuine surge in <em>buy</em>-side delta, not just total volume from both sides.</li>
+    </ul>
+
+    <h3>Spot vs. perps — what crypto "volume" is actually telling you</h3>
+    <p>This deserves its own class (and it's getting one) — but you need the core idea to read a crypto VCP's volume correctly. The same coin trades in <strong>two different markets at once</strong>:</p>
+    <ul>
+      <li><strong>Spot</strong> — buying the actual coin. Real ownership changes hands. This is "real" demand.</li>
+      <li><strong>Perps (perpetual futures)</strong> — leveraged bets on the price, settled in stablecoins; <em>no coin actually changes hands</em> (this is the leverage market from Class 19).</li>
+    </ul>
+    <div class="warning-box">
+      <h4>The reality: perp volume is usually much BIGGER than spot</h4>
+      <p>On most coins, <strong>perp (derivatives) volume dwarfs spot volume</strong> — often several times larger. So the volume bars on a typical crypto chart are mostly <strong>leverage activity, not real accumulation</strong>. That's the opposite of stocks, where the volume you see is real shares changing hands. It means you can't take a crypto "volume surge" at face value the way Minervini does on equities — you have to ask <em>where</em> the volume is coming from.</p>
+    </div>
+    <p><strong>Why it matters for a VCP breakout:</strong></p>
+    <ul>
+      <li>A breakout where the surge shows up in <strong>spot buying</strong> (real buyers taking ownership) is <strong>higher quality and tends to hold</strong>.</li>
+      <li>A breakout that's <strong>purely perp-driven</strong> can be fast but fragile — leverage unwinds just as fast (a long squeeze), and the move fails / becomes a squat.</li>
+    </ul>
+    <p><strong>The tools that reveal it</strong> (don't worry about mastering these today — this is exactly what the dedicated class covers):</p>
+    <ul>
+      <li><strong>Open Interest (OI)</strong> — the total size of open perp positions. Price up + OI up = new leveraged money committing (fuels the move, but also fuels a future squeeze). Price up + OI <em>down</em> = mostly shorts covering, often less durable.</li>
+      <li><strong>Funding rate (Class 19)</strong> — what longs pay shorts. Very high positive funding into a breakout = crowded longs = squeeze risk. Calm/neutral funding on a breakout is healthier.</li>
+      <li><strong>Spot CVD vs perp CVD (Class 14)</strong> — shows whether the buying pressure is coming from spot or from perps. Spot-led = real demand.</li>
+      <li><strong>Perp premium / basis</strong> — perps trading well above spot = leveraged FOMO; trading near spot = calmer, more sustainable.</li>
+    </ul>
+    <div class="crypto-box">
+      <h4>VCP breakout rule of thumb for crypto</h4>
+      <ul style="margin:0;">
+        <li><strong>Trust it more when:</strong> spot buying leads, Open Interest rises <em>moderately</em>, and funding is not extreme.</li>
+        <li><strong>Be cautious when:</strong> spot volume is flat/declining and the breakout is carried by perps with spiking funding — high odds of a squat or failed breakout.</li>
+      </ul>
+      <p style="margin:10px 0 0;">For today, the one takeaway: <strong>crypto "volume" is mostly leverage — the breakout you trust is the one backed by real spot buying.</strong> We'll go deep on OI, funding, CVD and liquidations in the dedicated class.</p>
+    </div>
+
+    <h3>Crypto reality #4 — Timeframes, candles &amp; the "close"</h3>
+    <ul>
+      <li><strong>Pick a close and be consistent.</strong> Crypto never closes, so define your candle — the <strong>daily UTC close</strong> (00:00 UTC) is the standard reference; the <strong>weekly close</strong> matters most for majors. Don't pivot between conventions to justify a trade.</li>
+      <li><strong>Timeframe by horizon:</strong> swing-trade VCPs on the <strong>daily</strong>; majors (BTC/ETH) base beautifully on the <strong>weekly</strong>; the <strong>4H</strong> works for faster alt setups but expect more noise/false breakouts.</li>
+      <li><strong>Crypto bases can form faster</strong> than equities — a clean VCP might take 3–6 weeks rather than 6–12. The footprint still records whatever actually happened; just don't force a "VCP" onto a 3-day wiggle.</li>
+      <li><strong>Weekends are thin.</strong> Low weekend liquidity produces both fake breakouts and fake breakdowns. Many crypto traders weight the <strong>weekday/US-session</strong> breakout more heavily and treat weekend moves with suspicion.</li>
+    </ul>
+
+    <h3>Crypto reality #5 — Liquidity, venue &amp; the pivot's "fakeout" problem</h3>
+    <div class="warning-box">
+      <h4>⚠️ Stop-hunts / liquidity grabs below the pivot</h4>
+      <p>Crypto is notorious for wicking just below an obvious level to trigger stops, then reversing — exactly at the pivot/last-contraction low where VCP traders place stops. Defenses: (1) prefer a <strong>candle-close</strong> beyond the level over an intraday wick, (2) place the stop a touch beyond the obvious round number / swing low rather than right on it, and (3) size so a stop-hunt wick doesn't blow your risk budget.</p>
+    </div>
+    <ul>
+      <li><strong>Liquid names only.</strong> BTC, ETH, and top-tier large-caps. Low-cap "textbook VCPs" are often illiquid traps: fake volume, air-pocket gaps, and slippage that wrecks your planned risk.</li>
+      <li><strong>Mind your venue / slippage.</strong> On thin books your entry above the pivot can fill far worse than planned. CEX spot, deep perps, or a liquid DEX like Hyperliquid (Class 3) — not a low-liquidity pair.</li>
+    </ul>
+
+    <h3>Crypto reality #6 — Stops, leverage &amp; funding</h3>
+    <ul>
+      <li><strong>The VCP's gift is a tight, logical invalidation</strong> (just under the last contraction). That's exactly the level to anchor a stop — and if you use leverage, to anchor it <em>away</em> from your liquidation price (Class 19). Let the pattern define risk; don't over-leverage so that normal noise liquidates you.</li>
+      <li><strong>Prefer isolated margin</strong> for a single setup so a failure can't cascade into the rest of your book (Class 19).</li>
+      <li><strong>Funding is a holding cost.</strong> Minervini says "time works against a short"; in crypto, <em>longs</em> also bleed funding when it's positive. A VCP that breaks out and goes nowhere costs you funding while you wait — another reason the breakout should move promptly or be cut.</li>
+      <li><strong>Volatility-scale your size.</strong> Use an ATR-based stop (Class 18) so a wider crypto range automatically gives you a smaller position at the same dollar risk.</li>
+    </ul>
+
+    <h3>What changes vs. what stays the same</h3>
+    <table>
+      <tr><th>Element</th><th>Minervini (stocks)</th><th>Crypto application</th></tr>
+      <tr><td>"General market" gate</td><td>S&amp;P / Nasdaq trend</td><td><strong>Bitcoin</strong> trend + dominance + funding</td></tr>
+      <tr><td>Relative strength</td><td>RS rank vs all stocks</td><td>Outperforming <strong>BTC</strong> (check the /BTC pair)</td></tr>
+      <tr><td>Fundamentals / catalyst</td><td>Accelerating EPS &amp; sales</td><td>Narrative: adoption, on-chain growth, upgrades, listings</td></tr>
+      <tr><td>The "close"</td><td>4:00pm market close</td><td>Daily <strong>UTC</strong> close / weekly close (be consistent)</td></tr>
+      <tr><td>Volume</td><td>Consolidated tape</td><td>Aggregated/major-venue; use CVD/Delta; ignore wash trades</td></tr>
+      <tr><td>The pattern (shape, pivot, dry-up, stop)</td><td colspan="2" style="text-align:center;background:#f4f9f4;"><strong>Identical</strong> — contractions halving, volume dry-up, breakout on a surge, stop below the last contraction</td></tr>
+    </table>
+
+    <h3>✅ The crypto VCP pre-trade checklist</h3>
+    <ul class="checklist">
+      <li><strong>Bitcoin is in an uptrend</strong> (or at least not breaking down) and not sitting under major resistance.</li>
+      <li>The coin shows <strong>relative strength vs BTC</strong> (holding up / higher lows on the /BTC pair).</li>
+      <li>It's a <strong>liquid name</strong> with trustworthy volume.</li>
+      <li><strong>2–4 contractions, each tighter than the last</strong>, on a clean base.</li>
+      <li><strong>Volume dries up</strong> into the final, quiet contraction (confirm with Delta/CVD).</li>
+      <li>One <strong>clean, obvious pivot</strong> (high of the last contraction).</li>
+      <li><strong>Stop level is defined</strong> (just below the last contraction) and your size/leverage keeps risk small and away from liquidation.</li>
+      <li>Entry on a <strong>volume-backed breakout</strong> (prefer a candle close through the pivot over an intraday wick).</li>
+    </ul>
+
+    <div class="highlight"><p><strong>➡️ See the "Worked Examples" tab</strong> for three real, dissected charts (WFRD, NU, AM). Read each against the crypto checklist above — the pattern reads identically; only the market gate (Bitcoin), the /BTC relative-strength check, and the volume caveats change.</p></div>
+  </div>
+
+  <!-- TAKEAWAYS -->
+  <div id="takeaways" class="section">
+    <h2>🎯 Key Takeaways</h2>
+    <ol class="steps">
+      <li><strong>A VCP is volatility + volume contracting before a breakout.</strong> Swings shrink left-to-right, volume dries up — a coiled spring. It's the <em>effect</em> of supply/demand resolving.</li>
+      <li><strong>Read the footprint:</strong> weeks, biggest/smallest contraction %, and the count (e.g., 19W 19/7 4T). Typically 2–6 contractions (3–4 is clean), each ~half the prior.</li>
+      <li><strong>The pivot is the high of the final, tightest contraction</strong> — the line of least resistance. Enter on the breakout with a volume surge; buy on the way up, don't chase.</li>
+      <li><strong>Context first (SEPA + Trend Template).</strong> Only trade VCPs in confirmed Stage 2 uptrends, in strong leaders. The trend gate beats the prettiest shape.</li>
+      <li><strong>Tight base = tight stop = controlled, sizable risk.</strong> Stop just below the last contraction; cut fast, never widen, add only to winners.</li>
+      <li><strong>In crypto:</strong> the pattern translates, but trend-gate against BTC, use clean volume, stick to liquid names, and respect higher volatility.</li>
+    </ol>
+
+    <div class="highlight">
+      <p><strong>💪 Action items / homework:</strong></p>
+      <ul>
+        <li>Open TradingView and find <strong>3 VCPs</strong> — any market (stocks or crypto). Write each one's footprint (weeks, biggest/smallest %, count).</li>
+        <li>For each: mark the <strong>pivot</strong>, and where your <strong>stop</strong> would go.</li>
+        <li>Check each against the <strong>Trend Template</strong> — is it really in a Stage 2 uptrend?</li>
+        <li>Bring your 3 charts to the next session — we'll critique them live.</li>
+      </ul>
+    </div>
+
+    <div class="trader-quote">
+      <div class="quote-text">"Not losing big is the single most important factor for winning big… losing is not a choice, but how much you lose is."</div>
+      <div class="quote-author">— Mark Minervini</div>
+    </div>
+
+    <p><strong>Next class:</strong> we keep building the playbook — the classical <strong>Pullback &amp; Retest</strong> entry (the highest-probability setup for beginners), which pairs naturally with everything you learned here.</p>
+  </div>
+
+  <!-- FOOTER / SOURCES -->
+  <div class="footer">
+    <p><strong>Beginner Trading Course — Class 30</strong></p>
+    <p>Phase 7: Strategies &amp; Edges · Decentralized Masters</p>
+    <div class="src">
+      <h4>Notes &amp; sources for the instructor</h4>
+      <p><strong>Primary (Minervini's own words):</strong> <em>Trade Like a Stock Market Wizard</em> (2013) and <em>Think &amp; Trade Like a Champion</em> (2016); his interviews and X/@markminervini. Verbatim quotes used here are from those books/interviews.</p>
+      <p><strong>Flagged as <span class="badge cc">commonly cited</span>:</strong> the exact breakout-volume threshold (~40–50%+), the "within ~5% of pivot" entry tolerance, the "6–12 week" duration, the 3–4 contraction sweet spot, "T = transitions," and the specific loss/risk percentages (7–8% cut, 0.5–2.5% risk). These are widely-used practitioner conventions, consistent with his teaching but not all stated verbatim by Minervini — verify against the books before presenting as his exact rules.</p>
+      <p><strong>Corrected misattributions:</strong> "Don't argue with the market" = Livermore (not Minervini); "wedging-up handle" faulty base = O'Neil/IBD.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function printAll() {
+  try {
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('.section').forEach(function(s){ s.classList.add('active'); });
+    ['#dlBtn','.nav','#imgZoom'].forEach(function(sel){ var el = clone.querySelector(sel); if (el) el.remove(); });
+    clone.querySelectorAll('script').forEach(function(x){ x.remove(); });
+    var w = window.open('', '_blank');
+    if (w && w.document) {
+      w.document.open(); w.document.write('<!DOCTYPE html>' + clone.outerHTML); w.document.close(); w.focus();
+      setTimeout(function(){ try { w.print(); } catch(e){} }, 500);
+      return;
+    }
+  } catch(e) {}
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.add('active'); });
+  try { window.print(); } catch(e){}
+}
+</script>
+</body>
+</html>
