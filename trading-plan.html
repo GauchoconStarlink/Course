@@ -178,7 +178,7 @@ body.mentor.show-id .identity-card{display:grid}
     </div>
     <input type="hidden" id="version" value="v1.0">
     <div id="sections"></div>
-    <div class="save-area">&#9989; Your plan saves automatically as you type. Come back anytime with the same email to continue.</div>
+    <div class="save-area">&#9989; Your plan saves automatically as you type. Come back anytime to continue.<br><a href="#" onclick="switchPlan();return false;" style="color:var(--accent)">Not you? Start a different plan</a> &nbsp;&middot;&nbsp; <a href="#" onclick="mentorLogin();return false;" style="color:var(--text-muted)">Mentor access</a></div>
   </div>
 </div>
 
@@ -280,7 +280,7 @@ function isConfigured(){ return FIREBASE_CONFIG && FIREBASE_CONFIG.apiKey && FIR
 function initFB(){ if(!isConfigured())return false; try{ firebase.initializeApp(FIREBASE_CONFIG); db=firebase.database(); connected=true; return true; }catch(e){ console.log(e); return false; } }
 function sanitize(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,''); }
 function scheduleSave(){ updateProgress(); if(!connected||!planId){ setSaveStatus(connected?'':'not-connected'); return;} setSaveStatus('saving'); clearTimeout(saveTimer); saveTimer=setTimeout(doSave,700); }
-function doSave(){ if(!connected||!planId)return; db.ref('plans/'+planId).set(getState()).then(function(){setSaveStatus('saved');}).catch(function(){setSaveStatus('error');}); }
+function doSave(){ if(!connected||!planId)return; var st=getState(); var payload = mentorMode ? {comments:st.comments, updatedAt:st.updatedAt} : {answers:st.answers, name:st.name, email:st.email, date:st.date, version:st.version, review:st.review, updatedAt:st.updatedAt}; db.ref('plans/'+planId).update(payload).then(function(){setSaveStatus('saved');}).catch(function(){setSaveStatus('error');}); }
 function loadPlan(pid,cb){ if(!connected){cb&&cb(null);return;} db.ref('plans/'+pid).once('value').then(function(s){cb&&cb(s.val());}).catch(function(){cb&&cb(null);}); }
 function setSaveStatus(s){ var el=document.getElementById('saveStatus'); if(!el)return; var m={saving:'Saving...',saved:'All changes saved',error:'Save failed - check connection','not-connected':'Storage not connected yet',"":""}; el.textContent=m[s]||''; el.className='save-status '+(s||''); }
 
@@ -288,7 +288,8 @@ function beginPlan(){
   var n=(val('cn')||document.getElementById('cn').value||'').trim(), e=(document.getElementById('ce').value||'').trim();
   if(!n||!e||e.indexOf('@')<0){ document.getElementById('cerr').style.display='block'; return; }
   mentorMode=false; document.body.classList.remove('mentor');
-  planId=sanitize(e); showApp(); setVal('name',n); setVal('email',e);
+  planId=sanitize(e); try{localStorage.setItem('tp_student',JSON.stringify({name:n,email:e}));}catch(_){}
+  showApp(); setVal('name',n); setVal('email',e);
   if(connected){ loadPlan(planId,function(data){ if(data){applyState(data);} else {updateProgress();} document.querySelector('.section').classList.add('open'); setSaveStatus('saved'); }); }
   else { updateProgress(); document.querySelector('.section').classList.add('open'); setSaveStatus('not-connected'); }
 }
@@ -320,11 +321,14 @@ function applyMentorVisibility(){
     if(mentorMode){ mn.style.display='block'; mc.removeAttribute('readonly'); }
     else { if(mc.value.trim()){ mn.style.display='block'; mc.setAttribute('readonly','readonly'); } else { mn.style.display='none'; } }
   });
+  document.querySelectorAll('#sections .q').forEach(function(q){ q.querySelectorAll('select, input[type=checkbox], textarea:not(.mc)').forEach(function(el){ if(mentorMode) el.setAttribute('disabled','disabled'); else el.removeAttribute('disabled'); }); });
   document.getElementById('mentorBar').style.display = mentorMode?'flex':'none';
 }
 
+function switchPlan(){ try{localStorage.removeItem('tp_student');}catch(_){}; location.reload(); }
 updateProgress();
-if(!initFB()){ var b=document.getElementById('banner'); }
+initFB();
+(function(){ try{ var sv=JSON.parse(localStorage.getItem('tp_student')||'null'); if(sv && sv.email){ document.getElementById('cn').value=sv.name||''; document.getElementById('ce').value=sv.email||''; beginPlan(); } }catch(_){} })();
 </script>
 </body>
 </html>
