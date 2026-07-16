@@ -186,7 +186,6 @@ body.mentor.show-id .identity-card{display:grid}
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script>
 var FIREBASE_CONFIG = {
   apiKey: "AIzaSyBGb5fGAyC-pRcRU6MUHb__b_vKha71HRE",
@@ -278,22 +277,7 @@ function applyState(st){
 }
 
 function isConfigured(){ return FIREBASE_CONFIG && FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey.indexOf('PASTE')<0; }
-function initFB(){
-  if(!isConfigured())return false;
-  try{
-    firebase.initializeApp(FIREBASE_CONFIG);
-    db=firebase.database();
-    firebase.auth().signInAnonymously().catch(function(e){ console.log('anon auth failed', e); setSaveStatus('error'); });
-    firebase.auth().onAuthStateChanged(function(u){
-      if(u){
-        connected=true;
-        if(planId){ loadPlan(planId, function(d){ if(d) applyState(d); setSaveStatus('saved'); }); }
-        else setSaveStatus('');
-      }
-    });
-    return true;
-  }catch(e){ console.log(e); return false; }
-}
+function initFB(){ if(!isConfigured())return false; try{ firebase.initializeApp(FIREBASE_CONFIG); db=firebase.database(); connected=true; if(planId){ loadPlan(planId,function(d){ if(d) applyState(d); setSaveStatus('saved'); }); } return true; }catch(e){ console.log(e); return false; } }
 function sanitize(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,''); }
 function scheduleSave(){ updateProgress(); if(!connected||!planId){ setSaveStatus(connected?'':'not-connected'); return;} setSaveStatus('saving'); clearTimeout(saveTimer); saveTimer=setTimeout(doSave,700); }
 function doSave(){ if(!connected||!planId)return; var st=getState(); var payload = mentorMode ? {comments:st.comments, updatedAt:st.updatedAt} : {answers:st.answers, name:st.name, email:st.email, date:st.date, version:st.version, review:st.review, updatedAt:st.updatedAt}; db.ref('plans/'+planId).update(payload).then(function(){setSaveStatus('saved');}).catch(function(){setSaveStatus('error');}); }
