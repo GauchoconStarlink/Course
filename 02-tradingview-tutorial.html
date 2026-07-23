@@ -1461,19 +1461,7 @@
         html += 'To save as PDF: Press <b>Ctrl+P</b> (Windows) or <b>⌘+P</b> (Mac) → select <b>"Save as PDF"</b> as destination';
         html += '</div>';
 
-        html += '<div id="imgZoom"></div>
-<script>
-(function(){
-  var ov=document.getElementById("imgZoom");
-  function close(){ ov.classList.remove("open"); ov.innerHTML=""; document.body.style.overflow=""; }
-  document.querySelectorAll(".section img").forEach(function(im){
-    im.addEventListener("click", function(){ var c=document.createElement("img"); c.src=im.src; ov.innerHTML=""; ov.appendChild(c); ov.classList.add("open"); document.body.style.overflow="hidden"; });
-  });
-  ov.addEventListener("click", close);
-  document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
-})();
-</script>
-</body></html>';
+        html += '</body></html>';
 
         // Strip base64 screenshots to keep the file small
         html = html.replace(/<img[^>]*>/gi, '<div style="padding:12px;border:1px dashed #bbb;color:#888;text-align:center">Screenshot: see online version</div>');
@@ -1487,5 +1475,17 @@
     });
     </script>
 
+<div id="imgZoom"></div>
+<script>
+(function(){
+  var ov=document.getElementById("imgZoom");
+  function cl(){ ov.classList.remove("open"); ov.innerHTML=""; document.body.style.overflow=""; }
+  document.querySelectorAll(".section img").forEach(function(im){
+    im.addEventListener("click", function(){ var c=document.createElement("img"); c.src=im.src; ov.innerHTML=""; ov.appendChild(c); ov.classList.add("open"); document.body.style.overflow="hidden"; });
+  });
+  ov.addEventListener("click", cl);
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") cl(); });
+})();
+</script>
 </body>
 </html>
