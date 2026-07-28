@@ -315,8 +315,7 @@ var d=null!=c&&c.hydratedSources||null,e=!1,f="",g=aj;null!==c&&void 0!==c&&(!0=
 function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmountComponentAtNode=function(a){if(!Vd(a))throw Error(m(40));return a._reactRootContainer?(yb(function(){Wd(null,null,a,!1,function(){a._reactRootContainer=null;a[Ja]=null})}),!0):!1};Q.unstable_batchedUpdates=Tf;Q.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!Vd(c))throw Error(m(200));if(null==a||void 0===a._reactInternals)throw Error(m(38));return Wd(a,b,c,!1,d)};Q.version="18.3.1-next-f1338f8080-20240426"});
 })();
 </script>
-<script>import { jsxDEV as _jsxDEV, Fragment as _Fragment } from "react/jsx-dev-runtime";
-const {
+<script>const {
   useState,
   useMemo
 } = React;
@@ -416,37 +415,33 @@ function Field({
   suffix,
   style: extraStyle
 }) {
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
       minWidth: 0,
       ...extraStyle
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: labelStyle,
-      children: label
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        position: "relative"
-      },
-      children: [/*#__PURE__*/_jsxDEV("input", {
-        style: inputStyle,
-        value: value,
-        onChange: e => onChange(e.target.value),
-        placeholder: placeholder || ""
-      }, void 0, false), suffix && /*#__PURE__*/_jsxDEV("span", {
-        style: {
-          position: "absolute",
-          right: 10,
-          top: "50%",
-          transform: "translateY(-50%)",
-          fontSize: 13,
-          color: textMuted
-        },
-        children: suffix
-      }, void 0, false)]
-    }, void 0, true)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: labelStyle
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative"
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    style: inputStyle,
+    value: value,
+    onChange: e => onChange(e.target.value),
+    placeholder: placeholder || ""
+  }), suffix && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      right: 10,
+      top: "50%",
+      transform: "translateY(-50%)",
+      fontSize: 13,
+      color: textMuted
+    }
+  }, suffix)));
 }
 function StatBox({
   label,
@@ -454,31 +449,28 @@ function StatBox({
   color,
   small
 }) {
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       flex: 1,
       minWidth: small ? 60 : 80
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: {
-        fontSize: small ? 15 : 18,
-        fontWeight: 700,
-        color: color || accent,
-        fontFamily: "'JetBrains Mono', monospace"
-      },
-      children: value
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        fontSize: 11,
-        color: textMuted,
-        textTransform: "uppercase",
-        letterSpacing: "0.04em",
-        marginTop: 2
-      },
-      children: label
-    }, void 0, false)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: small ? 15 : 18,
+      fontWeight: 700,
+      color: color || accent,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, value), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase",
+      letterSpacing: "0.04em",
+      marginTop: 2
+    }
+  }, label));
 }
 function TierProgress({
   label,
@@ -487,48 +479,43 @@ function TierProgress({
   color
 }) {
   const pctFilled = target > 0 ? Math.min(filled / target * 100, 100) : 0;
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: {
-        display: "flex",
-        justifyContent: "space-between",
-        marginBottom: 3
-      },
-      children: [/*#__PURE__*/_jsxDEV("span", {
-        style: {
-          fontSize: 12,
-          fontWeight: 700,
-          color
-        },
-        children: label
-      }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-        style: {
-          fontSize: 12,
-          color: textDim,
-          fontFamily: "'JetBrains Mono', monospace"
-        },
-        children: [fmt(filled, 4), "/", fmt(target, 4)]
-      }, void 0, true)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        height: 5,
-        borderRadius: 3,
-        background: "rgba(255,255,255,0.06)"
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          height: "100%",
-          borderRadius: 3,
-          background: color,
-          width: pctFilled + "%",
-          transition: "width 0.3s"
-        }
-      }, void 0, false)
-    }, void 0, false)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 3
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color
+    }
+  }, label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: textDim,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, fmt(filled, 4), "/", fmt(target, 4))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 5,
+      borderRadius: 3,
+      background: "rgba(255,255,255,0.06)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      borderRadius: 3,
+      background: color,
+      width: pctFilled + "%",
+      transition: "width 0.3s"
+    }
+  })));
 }
 const EVENT_META = {
   entry: {
@@ -571,7 +558,7 @@ function Badge({
     color: textDim,
     label: kind
   };
-  return /*#__PURE__*/_jsxDEV("span", {
+  return /*#__PURE__*/React.createElement("span", {
     style: {
       display: "inline-block",
       padding: "2px 7px",
@@ -583,9 +570,8 @@ function Badge({
       letterSpacing: "0.04em",
       minWidth: 56,
       textAlign: "center"
-    },
-    children: meta.label
-  }, void 0, false);
+    }
+  }, meta.label);
 }
 const ACTION_META = {
   entry: {
@@ -636,7 +622,7 @@ function ActionPill({
   disabled
 }) {
   const meta = ACTION_META[type];
-  return /*#__PURE__*/_jsxDEV("button", {
+  return /*#__PURE__*/React.createElement("button", {
     onClick: onClick,
     disabled: disabled,
     style: {
@@ -652,9 +638,8 @@ function ActionPill({
       whiteSpace: "nowrap",
       opacity: disabled ? 0.4 : 1,
       transition: "all 0.15s"
-    },
-    children: meta.label
-  }, void 0, false);
+    }
+  }, meta.label);
 }
 
 // ---- Analytics chart components ----
@@ -685,48 +670,47 @@ function EquityCurve({
   const lastP = points[points.length - 1];
   const fillPath = path + " L " + lastP[0].toFixed(1) + "," + zeroY.toFixed(1) + " L " + points[0][0].toFixed(1) + "," + zeroY.toFixed(1) + " Z";
   const lastLabel = mode === "r" ? (lastV >= 0 ? "+" : "") + lastV.toFixed(2) + "R" : (lastV >= 0 ? "+$" : "-$") + fmt0(Math.abs(lastV));
-  return /*#__PURE__*/_jsxDEV("svg", {
+  return /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 " + w + " " + h,
     style: {
       width: "100%",
       height: "auto",
       display: "block"
-    },
-    children: [/*#__PURE__*/_jsxDEV("path", {
-      d: fillPath,
-      fill: fillColor
-    }, void 0, false), /*#__PURE__*/_jsxDEV("line", {
-      x1: pad,
-      y1: zeroY,
-      x2: w - pad,
-      y2: zeroY,
-      stroke: "#ffffff",
-      strokeWidth: 0.5,
-      strokeDasharray: "3,4",
-      opacity: 0.3
-    }, void 0, false), /*#__PURE__*/_jsxDEV("path", {
-      d: path,
-      fill: "none",
-      stroke: lineColor,
-      strokeWidth: 2.5,
-      strokeLinejoin: "round",
-      strokeLinecap: "round"
-    }, void 0, false), points.map(([x, y], i) => /*#__PURE__*/_jsxDEV("circle", {
-      cx: x,
-      cy: y,
-      r: 2.5,
-      fill: lineColor
-    }, i, false)), /*#__PURE__*/_jsxDEV("text", {
-      x: lastP[0],
-      y: lastP[1] - 10,
-      fill: lineColor,
-      fontSize: 14,
-      fontWeight: 700,
-      textAnchor: "end",
-      fontFamily: "JetBrains Mono, monospace",
-      children: lastLabel
-    }, void 0, false)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: fillPath,
+    fill: fillColor
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: pad,
+    y1: zeroY,
+    x2: w - pad,
+    y2: zeroY,
+    stroke: "#ffffff",
+    strokeWidth: 0.5,
+    strokeDasharray: "3,4",
+    opacity: 0.3
+  }), /*#__PURE__*/React.createElement("path", {
+    d: path,
+    fill: "none",
+    stroke: lineColor,
+    strokeWidth: 2.5,
+    strokeLinejoin: "round",
+    strokeLinecap: "round"
+  }), points.map(([x, y], i) => /*#__PURE__*/React.createElement("circle", {
+    key: i,
+    cx: x,
+    cy: y,
+    r: 2.5,
+    fill: lineColor
+  })), /*#__PURE__*/React.createElement("text", {
+    x: lastP[0],
+    y: lastP[1] - 10,
+    fill: lineColor,
+    fontSize: 14,
+    fontWeight: 700,
+    textAnchor: "end",
+    fontFamily: "JetBrains Mono, monospace"
+  }, lastLabel));
 }
 function RHistogram({
   buckets
@@ -739,48 +723,45 @@ function RHistogram({
     padTop = 18;
   const maxCount = Math.max(1, ...buckets.map(b => b.count));
   const barW = (w - 2 * padX) / buckets.length;
-  return /*#__PURE__*/_jsxDEV("svg", {
+  return /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 " + w + " " + h,
     style: {
       width: "100%",
       height: "auto",
       display: "block"
-    },
-    children: buckets.map((b, i) => {
-      const x = padX + i * barW;
-      const barHeight = b.count / maxCount * (h - padTop - padBottom);
-      const y = h - padBottom - barHeight;
-      const color = b.max <= 0 ? red : green;
-      return /*#__PURE__*/_jsxDEV("g", {
-        children: [/*#__PURE__*/_jsxDEV("rect", {
-          x: x + 5,
-          y: y,
-          width: barW - 10,
-          height: Math.max(barHeight, b.count > 0 ? 2 : 0),
-          fill: color,
-          opacity: 0.75,
-          rx: 3
-        }, void 0, false), /*#__PURE__*/_jsxDEV("text", {
-          x: x + barW / 2,
-          y: h - padBottom + 16,
-          fill: "#ffffff",
-          fontSize: 11,
-          textAnchor: "middle",
-          opacity: 0.75,
-          children: b.label
-        }, void 0, false), b.count > 0 && /*#__PURE__*/_jsxDEV("text", {
-          x: x + barW / 2,
-          y: y - 5,
-          fill: color,
-          fontSize: 13,
-          fontWeight: 700,
-          textAnchor: "middle",
-          fontFamily: "JetBrains Mono, monospace",
-          children: b.count
-        }, void 0, false)]
-      }, i, true);
-    })
-  }, void 0, false);
+    }
+  }, buckets.map((b, i) => {
+    const x = padX + i * barW;
+    const barHeight = b.count / maxCount * (h - padTop - padBottom);
+    const y = h - padBottom - barHeight;
+    const color = b.max <= 0 ? red : green;
+    return /*#__PURE__*/React.createElement("g", {
+      key: i
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: x + 5,
+      y: y,
+      width: barW - 10,
+      height: Math.max(barHeight, b.count > 0 ? 2 : 0),
+      fill: color,
+      opacity: 0.75,
+      rx: 3
+    }), /*#__PURE__*/React.createElement("text", {
+      x: x + barW / 2,
+      y: h - padBottom + 16,
+      fill: "#ffffff",
+      fontSize: 11,
+      textAnchor: "middle",
+      opacity: 0.75
+    }, b.label), b.count > 0 && /*#__PURE__*/React.createElement("text", {
+      x: x + barW / 2,
+      y: y - 5,
+      fill: color,
+      fontSize: 13,
+      fontWeight: 700,
+      textAnchor: "middle",
+      fontFamily: "JetBrains Mono, monospace"
+    }, b.count));
+  }));
 }
 function BreakdownTable({
   title,
@@ -789,116 +770,99 @@ function BreakdownTable({
 }) {
   if (!rows || rows.length === 0) return null;
   const gridCols = "minmax(80px, 2fr) 50px 70px 70px 90px 100px";
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 14
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: sectionLabel,
-      children: title
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        background: surface2,
-        borderRadius: 7,
-        padding: "8px 12px"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "grid",
-          gridTemplateColumns: gridCols,
-          gap: 8,
-          alignItems: "center",
-          padding: "4px 0",
-          borderBottom: "1px solid " + border,
-          fontSize: 11,
-          color: textMuted,
-          textTransform: "uppercase",
-          fontWeight: 700,
-          letterSpacing: "0.04em"
-        },
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          children: keyLabel
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right"
-          },
-          children: "N"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right"
-          },
-          children: "Win %"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right"
-          },
-          children: "Avg R"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right"
-          },
-          children: "Total R"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right"
-          },
-          children: "Total $"
-        }, void 0, false)]
-      }, void 0, true), rows.map((r, i) => /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "grid",
-          gridTemplateColumns: gridCols,
-          gap: 8,
-          alignItems: "center",
-          padding: "7px 0",
-          fontSize: 13,
-          fontFamily: "'JetBrains Mono', monospace",
-          borderBottom: i < rows.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none"
-        },
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          style: {
-            color: "#fff",
-            fontWeight: 600,
-            fontFamily: "'DM Sans', sans-serif",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap"
-          },
-          children: r.key
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right",
-            color: "#fff"
-          },
-          children: r.n
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right",
-            color: r.winRate >= 50 ? green : amber
-          },
-          children: [r.winRate.toFixed(0), "%"]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right",
-            color: r.avgR >= 0 ? green : red
-          },
-          children: [r.avgR >= 0 ? "+" : "", r.avgR.toFixed(2), "R"]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right",
-            color: r.totalR >= 0 ? green : red
-          },
-          children: [r.totalR >= 0 ? "+" : "", r.totalR.toFixed(2), "R"]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            textAlign: "right",
-            color: r.totalPnl >= 0 ? green : red
-          },
-          children: [r.totalPnl >= 0 ? "+$" : "-$", fmt0(Math.abs(r.totalPnl))]
-        }, void 0, true)]
-      }, i, true))]
-    }, void 0, true)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 7,
+      padding: "8px 12px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: gridCols,
+      gap: 8,
+      alignItems: "center",
+      padding: "4px 0",
+      borderBottom: "1px solid " + border,
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase",
+      fontWeight: 700,
+      letterSpacing: "0.04em"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, keyLabel), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right"
+    }
+  }, "N"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Win %"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Avg R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Total R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Total $")), rows.map((r, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "grid",
+      gridTemplateColumns: gridCols,
+      gap: 8,
+      alignItems: "center",
+      padding: "7px 0",
+      fontSize: 13,
+      fontFamily: "'JetBrains Mono', monospace",
+      borderBottom: i < rows.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#fff",
+      fontWeight: 600,
+      fontFamily: "'DM Sans', sans-serif",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap"
+    }
+  }, r.key), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right",
+      color: "#fff"
+    }
+  }, r.n), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right",
+      color: r.winRate >= 50 ? green : amber
+    }
+  }, r.winRate.toFixed(0), "%"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right",
+      color: r.avgR >= 0 ? green : red
+    }
+  }, r.avgR >= 0 ? "+" : "", r.avgR.toFixed(2), "R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right",
+      color: r.totalR >= 0 ? green : red
+    }
+  }, r.totalR >= 0 ? "+" : "", r.totalR.toFixed(2), "R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      textAlign: "right",
+      color: r.totalPnl >= 0 ? green : red
+    }
+  }, r.totalPnl >= 0 ? "+$" : "-$", fmt0(Math.abs(r.totalPnl)))))));
 }
 function TradeTool() {
   const [setup, setSetup] = useState(EMPTY_SETUP);
@@ -1430,2184 +1394,1907 @@ function TradeTool() {
   const renderActionFields = () => {
     const remPh = posSummary ? fmt(posSummary.remainQty, 4) : "0.00";
     if (actionType === "stop") {
-      return /*#__PURE__*/_jsxDEV("div", {
+      return /*#__PURE__*/React.createElement("div", {
         style: {
           display: "flex",
           gap: 8
-        },
-        children: [/*#__PURE__*/_jsxDEV(Field, {
-          label: "New Stop Price",
-          value: newAction.price,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            price: v
-          })),
-          placeholder: currentStop != null ? String(currentStop) : "0.00"
-        }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-          label: "Reason",
-          value: newAction.reason,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            reason: v
-          })),
-          placeholder: "Move to BE / Trail to swing low..."
-        }, void 0, false)]
-      }, void 0, true);
-    }
-    if (actionType === "stopout") {
-      return /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          gap: 8
-        },
-        children: [/*#__PURE__*/_jsxDEV(Field, {
-          label: "Stop Price",
-          value: newAction.price,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            price: v
-          })),
-          placeholder: currentStop != null ? String(currentStop) + " (current stop)" : "0.00"
-        }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-          label: "Quantity",
-          value: newAction.qty,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            qty: v
-          })),
-          placeholder: remPh + " (remaining)"
-        }, void 0, false)]
-      }, void 0, true);
-    }
-    if (actionType === "close") {
-      return /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          gap: 8
-        },
-        children: [/*#__PURE__*/_jsxDEV(Field, {
-          label: "Exit Price",
-          value: newAction.price,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            price: v
-          })),
-          placeholder: "0.00"
-        }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-          label: "Quantity",
-          value: newAction.qty,
-          onChange: v => setNewAction(a => ({
-            ...a,
-            qty: v
-          })),
-          placeholder: remPh + " (remaining)"
-        }, void 0, false)]
-      }, void 0, true);
-    }
-    return /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        display: "flex",
-        gap: 8
-      },
-      children: [/*#__PURE__*/_jsxDEV(Field, {
-        label: "Price",
+        }
+      }, /*#__PURE__*/React.createElement(Field, {
+        label: "New Stop Price",
         value: newAction.price,
         onChange: v => setNewAction(a => ({
           ...a,
           price: v
         })),
-        placeholder: "0.00"
-      }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
+        placeholder: currentStop != null ? String(currentStop) : "0.00"
+      }), /*#__PURE__*/React.createElement(Field, {
+        label: "Reason",
+        value: newAction.reason,
+        onChange: v => setNewAction(a => ({
+          ...a,
+          reason: v
+        })),
+        placeholder: "Move to BE / Trail to swing low..."
+      }));
+    }
+    if (actionType === "stopout") {
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          gap: 8
+        }
+      }, /*#__PURE__*/React.createElement(Field, {
+        label: "Stop Price",
+        value: newAction.price,
+        onChange: v => setNewAction(a => ({
+          ...a,
+          price: v
+        })),
+        placeholder: currentStop != null ? String(currentStop) + " (current stop)" : "0.00"
+      }), /*#__PURE__*/React.createElement(Field, {
         label: "Quantity",
         value: newAction.qty,
         onChange: v => setNewAction(a => ({
           ...a,
           qty: v
         })),
+        placeholder: remPh + " (remaining)"
+      }));
+    }
+    if (actionType === "close") {
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          gap: 8
+        }
+      }, /*#__PURE__*/React.createElement(Field, {
+        label: "Exit Price",
+        value: newAction.price,
+        onChange: v => setNewAction(a => ({
+          ...a,
+          price: v
+        })),
         placeholder: "0.00"
-      }, void 0, false)]
-    }, void 0, true);
+      }), /*#__PURE__*/React.createElement(Field, {
+        label: "Quantity",
+        value: newAction.qty,
+        onChange: v => setNewAction(a => ({
+          ...a,
+          qty: v
+        })),
+        placeholder: remPh + " (remaining)"
+      }));
+    }
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 8
+      }
+    }, /*#__PURE__*/React.createElement(Field, {
+      label: "Price",
+      value: newAction.price,
+      onChange: v => setNewAction(a => ({
+        ...a,
+        price: v
+      })),
+      placeholder: "0.00"
+    }), /*#__PURE__*/React.createElement(Field, {
+      label: "Quantity",
+      value: newAction.qty,
+      onChange: v => setNewAction(a => ({
+        ...a,
+        qty: v
+      })),
+      placeholder: "0.00"
+    }));
   };
   const meta = ACTION_META[actionType];
   const hasPosition = entries.length > 0;
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       background: bg,
       color: textMain,
       minHeight: "100vh",
       fontFamily: "'DM Sans', -apple-system, sans-serif",
       padding: "20px 16px"
-    },
-    children: [/*#__PURE__*/_jsxDEV("link", {
-      href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
-      rel: "stylesheet"
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        textAlign: "center",
-        marginBottom: 20
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "inline-block",
-          padding: "4px 12px",
-          background: accentDim,
-          border: `1px solid rgba(167,139,250,0.25)`,
-          borderRadius: 100,
-          fontSize: 12,
-          fontWeight: 700,
-          color: accent,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-          marginBottom: 8
-        },
-        children: "Trade Management Demo"
-      }, void 0, false), /*#__PURE__*/_jsxDEV("h1", {
-        style: {
-          fontSize: 22,
-          fontWeight: 700,
-          color: "#fff",
-          margin: 0,
-          letterSpacing: "-0.02em"
-        },
-        children: "Position Planner & Tracker"
-      }, void 0, false), /*#__PURE__*/_jsxDEV("p", {
-        style: {
-          fontSize: 14,
-          color: textDim,
-          margin: "4px 0 0"
-        },
-        children: "Created and curated by Juan Manuel Villar"
-      }, void 0, false)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
+    }
+  }, /*#__PURE__*/React.createElement("link", {
+    href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    rel: "stylesheet"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      marginBottom: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "inline-block",
+      padding: "4px 12px",
+      background: accentDim,
+      border: `1px solid rgba(167,139,250,0.25)`,
+      borderRadius: 100,
+      fontSize: 12,
+      fontWeight: 700,
+      color: accent,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      marginBottom: 8
+    }
+  }, "Trade Management Demo"), /*#__PURE__*/React.createElement("h1", {
+    style: {
+      fontSize: 22,
+      fontWeight: 700,
+      color: "#fff",
+      margin: 0,
+      letterSpacing: "-0.02em"
+    }
+  }, "Position Planner & Tracker"), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 14,
+      color: textDim,
+      margin: "4px 0 0"
+    }
+  }, "Created and curated by Juan Manuel Villar")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      marginBottom: 16,
+      justifyContent: "center",
+      flexWrap: "wrap"
+    }
+  }, [["setup", "1. Pre-Trade Plan"], ["tracker", "2. Live Management"], ["journal", "3. Post-Trade Review"], ["logged", "Logged Trades (" + loggedTrades.length + ")"]].map(([k, l]) => /*#__PURE__*/React.createElement("button", {
+    key: k,
+    onClick: () => setTab(k),
+    style: tabPillStyle(tab === k)
+  }, l)), /*#__PURE__*/React.createElement("button", {
+    onClick: resetAll,
+    style: {
+      ...tabPillStyle(false),
+      color: red,
+      borderColor: "rgba(248,113,113,0.3)"
+    }
+  }, "Reset")), tab === "setup" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 520,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 12
+    }
+  }, "Trade Parameters"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Asset",
+    value: setup.asset,
+    onChange: v => upd("asset", v),
+    placeholder: "BTC/USDT"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: labelStyle
+  }, "Direction"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4
+    }
+  }, ["Long", "Short"].map(d => /*#__PURE__*/React.createElement("button", {
+    key: d,
+    onClick: () => upd("direction", d),
+    style: {
+      flex: 1,
+      padding: "8px 0",
+      borderRadius: 6,
+      fontSize: 14,
+      fontWeight: 700,
+      cursor: "pointer",
+      border: `1px solid ${setup.direction === d ? d === "Long" ? green : red : border}`,
+      background: setup.direction === d ? d === "Long" ? "rgba(52,211,153,0.12)" : "rgba(248,113,113,0.12)" : "transparent",
+      color: setup.direction === d ? d === "Long" ? green : red : textMuted
+    }
+  }, d))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Account Size",
+    value: setup.accountSize,
+    onChange: v => upd("accountSize", v),
+    placeholder: "10000",
+    suffix: "$"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      minWidth: 0,
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Risk",
+    value: setup.riskPct,
+    onChange: v => upd("riskPct", v),
+    placeholder: "1",
+    suffix: "%"
+  }), /*#__PURE__*/React.createElement(Field, {
+    label: "Leverage",
+    value: setup.leverage,
+    onChange: v => upd("leverage", v),
+    placeholder: "1",
+    suffix: "x"
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Entry Price",
+    value: setup.entry,
+    onChange: v => upd("entry", v),
+    placeholder: "0.00"
+  }), /*#__PURE__*/React.createElement(Field, {
+    label: "Stop Loss",
+    value: setup.stop,
+    onChange: v => upd("stop", v),
+    placeholder: "0.00"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      marginTop: 6,
+      marginBottom: 6
+    }
+  }, "Take-Profit Targets (Tier System - 33 / 33 / 34)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "TP1 - 33%",
+    value: setup.tp1,
+    onChange: v => upd("tp1", v),
+    placeholder: "Target 1"
+  }), /*#__PURE__*/React.createElement(Field, {
+    label: "TP2 - 33%",
+    value: setup.tp2,
+    onChange: v => upd("tp2", v),
+    placeholder: "Target 2"
+  }), /*#__PURE__*/React.createElement(Field, {
+    label: "TP3 - 34%",
+    value: setup.tp3,
+    onChange: v => upd("tp3", v),
+    placeholder: "Target 3"
+  }))), calc && /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...cardStyle,
+      border: `1px solid rgba(167,139,250,0.25)`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 14
+    }
+  }, "Setup Validation"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap",
+      marginBottom: 10,
+      background: surface2,
+      borderRadius: 8,
+      padding: "12px 8px"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Risk $",
+    value: "$" + fmt(calc.riskAmt),
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Stop Dist",
+    value: pct(-calc.stopPct).replace("+", ""),
+    color: red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Pos. Size",
+    value: fmt(calc.posSize, 4),
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Pos. Value",
+    value: "$" + fmt(calc.posValue),
+    small: true
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap",
+      marginBottom: 16,
+      background: surface2,
+      borderRadius: 8,
+      padding: "12px 8px"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Leverage",
+    value: fmt(calc.lev, 1) + "x",
+    color: calc.lev > 1 ? accent : textDim,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Margin Req.",
+    value: "$" + fmt(calc.marginRequired),
+    color: calc.marginPct > 80 ? red : calc.marginPct > 50 ? amber : textDim,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Margin %",
+    value: fmt(calc.marginPct, 1) + "%",
+    color: calc.marginPct > 80 ? red : calc.marginPct > 50 ? amber : textDim,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Liq. Price",
+    value: "$" + fmt(calc.liqPrice),
+    color: calc.lev > 1 ? red : textMuted,
+    small: true
+  })), calc.lev > 1 && calc.liqPrice > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, calc.isLong && calc.liqPrice >= calc.s && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5,
+      marginBottom: 4
+    }
+  }, "Liquidation price ($", fmt(calc.liqPrice), ") is above your stop ($", fmt(calc.s), ") - you could get liquidated before your stop hits"), !calc.isLong && calc.liqPrice <= calc.s && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5,
+      marginBottom: 4
+    }
+  }, "Liquidation price ($", fmt(calc.liqPrice), ") is below your stop ($", fmt(calc.s), ") - you could get liquidated before your stop hits"), calc.lev > 10 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5,
+      marginBottom: 4
+    }
+  }, "Leverage is ", fmt(calc.lev, 1), "x - extremely high risk")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 8
+    }
+  }, "Target Analysis"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      background: surface2,
+      borderRadius: 7,
+      padding: "8px 12px",
+      border: `1px solid rgba(251,191,36,0.35)`
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: amber,
+      minWidth: 80
+    }
+  }, "1R TRIGGER"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 14,
+      color: amber,
+      fontFamily: "'JetBrains Mono', monospace",
+      minWidth: 70,
+      fontWeight: 700
+    }
+  }, "$", fmt(calc.oneRPrice)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: amber,
+      fontWeight: 600,
+      minWidth: 45
+    }
+  }, "1.0R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: textDim,
+      minWidth: 55
+    }
+  }, pct(calc.stopPct)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: amber,
+      fontStyle: "italic",
+      marginLeft: "auto"
+    }
+  }, "→ Move stop to BE")), calc.tiers.map((t, i) => {
+    if (!t) return null;
+    const tierLabel = ["Tier 1 (33%)", "Tier 2 (33%)", "Tier 3 (34%)"][i];
+    const tierColor = [accent, blue, green][i];
+    const tierPortion = [0.33, 0.33, 0.34][i];
+    const tierPnl = t.pnl * tierPortion;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
       style: {
         display: "flex",
-        gap: 6,
-        marginBottom: 16,
-        justifyContent: "center",
-        flexWrap: "wrap"
-      },
-      children: [[["setup", "1. Pre-Trade Plan"], ["tracker", "2. Live Management"], ["journal", "3. Post-Trade Review"], ["logged", "Logged Trades (" + loggedTrades.length + ")"]].map(([k, l]) => /*#__PURE__*/_jsxDEV("button", {
-        onClick: () => setTab(k),
-        style: tabPillStyle(tab === k),
-        children: l
-      }, k, false)), /*#__PURE__*/_jsxDEV("button", {
-        onClick: resetAll,
-        style: {
-          ...tabPillStyle(false),
-          color: red,
-          borderColor: "rgba(248,113,113,0.3)"
-        },
-        children: "Reset"
-      }, void 0, false)]
-    }, void 0, true), tab === "setup" && /*#__PURE__*/_jsxDEV("div", {
+        alignItems: "center",
+        gap: 10,
+        background: surface2,
+        borderRadius: 7,
+        padding: "8px 12px"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
       style: {
-        maxWidth: 520,
-        margin: "0 auto"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            marginBottom: 12
-          },
-          children: "Trade Parameters"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 10,
-            marginBottom: 10
-          },
-          children: [/*#__PURE__*/_jsxDEV(Field, {
-            label: "Asset",
-            value: setup.asset,
-            onChange: v => upd("asset", v),
-            placeholder: "BTC/USDT"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              flex: 1,
-              minWidth: 0
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: labelStyle,
-              children: "Direction"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 4
-              },
-              children: ["Long", "Short"].map(d => /*#__PURE__*/_jsxDEV("button", {
-                onClick: () => upd("direction", d),
-                style: {
-                  flex: 1,
-                  padding: "8px 0",
-                  borderRadius: 6,
-                  fontSize: 14,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  border: `1px solid ${setup.direction === d ? d === "Long" ? green : red : border}`,
-                  background: setup.direction === d ? d === "Long" ? "rgba(52,211,153,0.12)" : "rgba(248,113,113,0.12)" : "transparent",
-                  color: setup.direction === d ? d === "Long" ? green : red : textMuted
-                },
-                children: d
-              }, d, false))
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 10,
-            marginBottom: 10
-          },
-          children: [/*#__PURE__*/_jsxDEV(Field, {
-            label: "Account Size",
-            value: setup.accountSize,
-            onChange: v => upd("accountSize", v),
-            placeholder: "10000",
-            suffix: "$"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              flex: 1,
-              minWidth: 0,
-              display: "flex",
-              gap: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV(Field, {
-              label: "Risk",
-              value: setup.riskPct,
-              onChange: v => upd("riskPct", v),
-              placeholder: "1",
-              suffix: "%"
-            }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-              label: "Leverage",
-              value: setup.leverage,
-              onChange: v => upd("leverage", v),
-              placeholder: "1",
-              suffix: "x"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 10,
-            marginBottom: 10
-          },
-          children: [/*#__PURE__*/_jsxDEV(Field, {
-            label: "Entry Price",
-            value: setup.entry,
-            onChange: v => upd("entry", v),
-            placeholder: "0.00"
-          }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-            label: "Stop Loss",
-            value: setup.stop,
-            onChange: v => upd("stop", v),
-            placeholder: "0.00"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 13,
-            fontWeight: 700,
-            color: textMuted,
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-            marginTop: 6,
-            marginBottom: 6
-          },
-          children: "Take-Profit Targets (Tier System - 33 / 33 / 34)"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 10
-          },
-          children: [/*#__PURE__*/_jsxDEV(Field, {
-            label: "TP1 - 33%",
-            value: setup.tp1,
-            onChange: v => upd("tp1", v),
-            placeholder: "Target 1"
-          }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-            label: "TP2 - 33%",
-            value: setup.tp2,
-            onChange: v => upd("tp2", v),
-            placeholder: "Target 2"
-          }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-            label: "TP3 - 34%",
-            value: setup.tp3,
-            onChange: v => upd("tp3", v),
-            placeholder: "Target 3"
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), calc && /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          ...cardStyle,
-          border: `1px solid rgba(167,139,250,0.25)`
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            marginBottom: 14
-          },
-          children: "Setup Validation"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 8,
-            flexWrap: "wrap",
-            marginBottom: 10,
-            background: surface2,
-            borderRadius: 8,
-            padding: "12px 8px"
-          },
-          children: [/*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Risk $",
-            value: "$" + fmt(calc.riskAmt),
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Stop Dist",
-            value: pct(-calc.stopPct).replace("+", ""),
-            color: red,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Pos. Size",
-            value: fmt(calc.posSize, 4),
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Pos. Value",
-            value: "$" + fmt(calc.posValue),
-            small: true
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 8,
-            flexWrap: "wrap",
-            marginBottom: 16,
-            background: surface2,
-            borderRadius: 8,
-            padding: "12px 8px"
-          },
-          children: [/*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Leverage",
-            value: fmt(calc.lev, 1) + "x",
-            color: calc.lev > 1 ? accent : textDim,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Margin Req.",
-            value: "$" + fmt(calc.marginRequired),
-            color: calc.marginPct > 80 ? red : calc.marginPct > 50 ? amber : textDim,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Margin %",
-            value: fmt(calc.marginPct, 1) + "%",
-            color: calc.marginPct > 80 ? red : calc.marginPct > 50 ? amber : textDim,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Liq. Price",
-            value: "$" + fmt(calc.liqPrice),
-            color: calc.lev > 1 ? red : textMuted,
-            small: true
-          }, void 0, false)]
-        }, void 0, true), calc.lev > 1 && calc.liqPrice > 0 && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 10
-          },
-          children: [calc.isLong && calc.liqPrice >= calc.s && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5,
-              marginBottom: 4
-            },
-            children: ["Liquidation price ($", fmt(calc.liqPrice), ") is above your stop ($", fmt(calc.s), ") - you could get liquidated before your stop hits"]
-          }, void 0, true), !calc.isLong && calc.liqPrice <= calc.s && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5,
-              marginBottom: 4
-            },
-            children: ["Liquidation price ($", fmt(calc.liqPrice), ") is below your stop ($", fmt(calc.s), ") - you could get liquidated before your stop hits"]
-          }, void 0, true), calc.lev > 10 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5,
-              marginBottom: 4
-            },
-            children: ["Leverage is ", fmt(calc.lev, 1), "x - extremely high risk"]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              fontWeight: 700,
-              color: textMuted,
-              textTransform: "uppercase",
-              marginBottom: 8
-            },
-            children: "Target Analysis"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 6
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                background: surface2,
-                borderRadius: 7,
-                padding: "8px 12px",
-                border: `1px solid rgba(251,191,36,0.35)`
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 12,
-                  fontWeight: 700,
-                  color: amber,
-                  minWidth: 80
-                },
-                children: "1R TRIGGER"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 14,
-                  color: amber,
-                  fontFamily: "'JetBrains Mono', monospace",
-                  minWidth: 70,
-                  fontWeight: 700
-                },
-                children: ["$", fmt(calc.oneRPrice)]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 13,
-                  color: amber,
-                  fontWeight: 600,
-                  minWidth: 45
-                },
-                children: "1.0R"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 13,
-                  color: textDim,
-                  minWidth: 55
-                },
-                children: pct(calc.stopPct)
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 12,
-                  color: amber,
-                  fontStyle: "italic",
-                  marginLeft: "auto"
-                },
-                children: "→ Move stop to BE"
-              }, void 0, false)]
-            }, void 0, true), calc.tiers.map((t, i) => {
-              if (!t) return null;
-              const tierLabel = ["Tier 1 (33%)", "Tier 2 (33%)", "Tier 3 (34%)"][i];
-              const tierColor = [accent, blue, green][i];
-              const tierPortion = [0.33, 0.33, 0.34][i];
-              const tierPnl = t.pnl * tierPortion;
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  background: surface2,
-                  borderRadius: 7,
-                  padding: "8px 12px"
-                },
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 12,
-                    fontWeight: 700,
-                    color: tierColor,
-                    minWidth: 80
-                  },
-                  children: tierLabel
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 14,
-                    color: textMain,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    minWidth: 70
-                  },
-                  children: ["$", fmt(t.price)]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 13,
-                    color: t.rr >= 2 ? green : t.rr >= 1 ? amber : red,
-                    fontWeight: 600,
-                    minWidth: 45
-                  },
-                  children: [t.rr.toFixed(1), "R"]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 13,
-                    color: textDim,
-                    minWidth: 55
-                  },
-                  children: pct(t.distPct)
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    fontSize: 13,
-                    color: green,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    marginLeft: "auto"
-                  },
-                  children: ["+$", fmt(tierPnl)]
-                }, void 0, true)]
-              }, i, true);
-            })]
-          }, void 0, true), calc.tiers.every(t => t) && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: 8,
-              padding: "8px 12px",
-              background: "rgba(52,211,153,0.08)",
-              border: `1px solid rgba(52,211,153,0.2)`,
-              borderRadius: 7
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 13,
-                fontWeight: 700,
-                color: green
-              },
-              children: "Total P&L if all targets hit"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                fontSize: 15,
-                fontWeight: 700,
-                color: green,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["+$", fmt(calc.tiers.reduce((sum, t, i) => sum + (t ? t.pnl * [0.33, 0.33, 0.34][i] : 0), 0))]
-            }, void 0, true)]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginTop: 14,
-            display: "flex",
-            flexDirection: "column",
-            gap: 4
-          },
-          children: [calc.isLong && calc.s >= calc.e && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5
-            },
-            children: "Warning: Stop is above entry for a Long trade"
-          }, void 0, false), !calc.isLong && calc.s <= calc.e && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5
-            },
-            children: "Warning: Stop is below entry for a Short trade"
-          }, void 0, false), calc.marginPct > 100 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: red,
-              padding: "4px 8px",
-              background: "rgba(248,113,113,0.08)",
-              borderRadius: 5
-            },
-            children: ["Margin required ($", fmt(calc.marginRequired), ") exceeds account size"]
-          }, void 0, true), calc.stopPct > 10 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: amber,
-              padding: "4px 8px",
-              background: "rgba(251,191,36,0.08)",
-              borderRadius: 5
-            },
-            children: ["Note: Wide stop (", calc.stopPct.toFixed(1), "%) - consider reducing position size"]
-          }, void 0, true), calc.tiers[0] && calc.tiers[0].rr < 1 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              color: amber,
-              padding: "4px 8px",
-              background: "rgba(251,191,36,0.08)",
-              borderRadius: 5
-            },
-            children: "TP1 is below 1R - minimum R:R should be 1:1"
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            marginBottom: 10
-          },
-          children: "Setup Context"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            flexDirection: "column",
-            gap: 8
-          },
-          children: [/*#__PURE__*/_jsxDEV(Field, {
-            label: "Setup Type",
-            value: setup.setupType,
-            onChange: v => upd("setupType", v),
-            placeholder: "Breakout / Pullback / S&R bounce..."
-          }, void 0, false), /*#__PURE__*/_jsxDEV(Field, {
-            label: "Confirmation Signals",
-            value: setup.confirmation,
-            onChange: v => upd("confirmation", v),
-            placeholder: "Volume spike, bullish engulfing, RSI divergence..."
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true)]
-    }, void 0, true), tab === "tracker" && /*#__PURE__*/_jsxDEV("div", {
+        fontSize: 12,
+        fontWeight: 700,
+        color: tierColor,
+        minWidth: 80
+      }
+    }, tierLabel), /*#__PURE__*/React.createElement("span", {
       style: {
-        maxWidth: 580,
-        margin: "0 auto"
-      },
-      children: [calc ? /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          ...cardStyle,
-          padding: "10px 14px"
-        },
-        children: /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 14,
-            fontSize: 13,
-            flexWrap: "wrap",
-            alignItems: "center"
-          },
-          children: [/*#__PURE__*/_jsxDEV("span", {
-            style: {
-              color: textMuted,
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.06em",
-              fontSize: 12
-            },
-            children: "Plan"
-          }, void 0, false), setup.asset && /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Asset "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: "#fff",
-                fontWeight: 600
-              },
-              children: setup.asset
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Dir "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: setup.direction === "Long" ? green : red,
-                fontWeight: 600
-              },
-              children: setup.direction
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Entry "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMain,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.e)]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Stop "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: red,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.s)]
-            }, void 0, true)]
-          }, void 0, true), calc.tiers[0] && /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "TP1 "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: accent,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.tiers[0].price)]
-            }, void 0, true)]
-          }, void 0, true), calc.tiers[1] && /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "TP2 "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: blue,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.tiers[1].price)]
-            }, void 0, true)]
-          }, void 0, true), calc.tiers[2] && /*#__PURE__*/_jsxDEV("span", {
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "TP3 "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: green,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.tiers[2].price)]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-            style: {
-              marginLeft: "auto"
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Risk "
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: red,
-                fontFamily: "'JetBrains Mono', monospace"
-              },
-              children: ["$", fmt(calc.riskAmt)]
-            }, void 0, true)]
-          }, void 0, true)]
-        }, void 0, true)
-      }, void 0, false) : /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          ...cardStyle,
-          padding: "10px 14px",
-          textAlign: "center",
-          color: textDim,
-          fontSize: 13
-        },
-        children: "Fill in your Pre-Trade Plan first so the Plan reference appears here."
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          ...cardStyle,
-          border: `1px solid rgba(167,139,250,0.25)`
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 10
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              color: "#fff"
-            },
-            children: "Live Position State"
-          }, void 0, false), tradeClosed && /*#__PURE__*/_jsxDEV("span", {
-            style: {
-              fontSize: 12,
-              fontWeight: 700,
-              color: amber,
-              padding: "2px 8px",
-              background: "rgba(251,191,36,0.15)",
-              borderRadius: 100,
-              letterSpacing: "0.06em"
-            },
-            children: "TRADE CLOSED"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 8,
-            background: surface2,
-            borderRadius: 8,
-            padding: "12px 8px"
-          },
-          children: [/*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Avg Entry",
-            value: posSummary ? "$" + fmt(posSummary.avgEntry) : "-",
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Total Qty",
-            value: posSummary ? fmt(posSummary.totalQty, 4) : "-",
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Remaining",
-            value: posSummary ? fmt(posSummary.remainQty, 4) : "-",
-            color: posSummary && posSummary.remainQty > 0 ? green : textDim,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Curr. Stop",
-            value: currentStop != null ? "$" + fmt(currentStop) : "-",
-            color: amber,
-            small: true
-          }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-            label: "Realized P&L",
-            value: posSummary ? (posSummary.realizedPnl >= 0 ? "+$" : "-$") + fmt(Math.abs(posSummary.realizedPnl)) : "-",
-            color: posSummary ? posSummary.realizedPnl >= 0 ? green : red : textDim,
-            small: true
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 12
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              color: "#fff"
-            },
-            children: "Log an Action"
-          }, void 0, false), tradeClosed && /*#__PURE__*/_jsxDEV("span", {
-            style: {
-              fontSize: 12,
-              color: textMuted,
-              fontStyle: "italic"
-            },
-            children: "Trade closed — reset to start a new one"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 6,
-            marginBottom: 14,
-            flexWrap: "wrap"
-          },
-          children: [!hasPosition ? /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "entry",
-            active: actionType === "entry",
-            onClick: () => setActionType("entry"),
-            disabled: tradeClosed
-          }, void 0, false) : /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "add",
-            active: actionType === "add",
-            onClick: () => setActionType("add"),
-            disabled: tradeClosed
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "tp1",
-            active: actionType === "tp1",
-            onClick: () => setActionType("tp1"),
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "tp2",
-            active: actionType === "tp2",
-            onClick: () => setActionType("tp2"),
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "tp3",
-            active: actionType === "tp3",
-            onClick: () => setActionType("tp3"),
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "stop",
-            active: actionType === "stop",
-            onClick: () => {
-              setActionType("stop");
-              if (calc && !newAction.price && !newAction.reason) {
-                setNewAction({
-                  price: String(calc.e),
-                  qty: "",
-                  reason: "Move to BE after 1R"
-                });
-              }
-            },
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "stopout",
-            active: actionType === "stopout",
-            onClick: () => setActionType("stopout"),
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false), /*#__PURE__*/_jsxDEV(ActionPill, {
-            type: "close",
-            active: actionType === "close",
-            onClick: () => setActionType("close"),
-            disabled: tradeClosed || !hasPosition
-          }, void 0, false)]
-        }, void 0, true), renderActionFields(), /*#__PURE__*/_jsxDEV("button", {
-          onClick: submitAction,
-          disabled: tradeClosed,
-          style: {
-            marginTop: 12,
-            padding: "10px 16px",
-            borderRadius: 6,
-            border: `1px solid ${tradeClosed ? border : meta.color}`,
-            background: tradeClosed ? "transparent" : meta.color + "22",
-            color: tradeClosed ? textMuted : meta.color,
-            fontWeight: 700,
-            fontSize: 15,
-            cursor: tradeClosed ? "not-allowed" : "pointer",
-            width: "100%",
-            transition: "all 0.15s"
-          },
-          children: meta.submit
-        }, void 0, false)]
-      }, void 0, true), chronoLog.length > 0 && /*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            marginBottom: 10
-          },
-          children: ["Trade Log (", chronoLog.length, " actions)"]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            flexDirection: "column",
-            gap: 4
-          },
-          children: chronoLog.map((ev, i) => {
-            const isExitEvent = ["T1", "T2", "T3", "Close", "StopOut"].includes(ev.kind);
-            const isStopEvent = ev.kind === "stop";
-            const isEntryEvent = ev.kind === "entry" || ev.kind === "add";
-            let pnlForEvent = null;
-            if (isExitEvent && posSummary) {
-              const pnlPerUnit = posSummary.isLong ? ev.price - posSummary.avgEntry : posSummary.avgEntry - ev.price;
-              pnlForEvent = pnlPerUnit * ev.qty;
-            }
-            return /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "8px 10px",
-                background: surface2,
-                borderRadius: 6,
-                fontSize: 14
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMuted,
-                  fontWeight: 700,
-                  minWidth: 22,
-                  fontSize: 13,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: ["#", i + 1]
-              }, void 0, true), /*#__PURE__*/_jsxDEV(Badge, {
-                kind: ev.kind
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMain,
-                  fontFamily: "'JetBrains Mono', monospace",
-                  minWidth: 80
-                },
-                children: ["$", fmt(ev.price)]
-              }, void 0, true), (isEntryEvent || isExitEvent) && /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textDim,
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 13,
-                  minWidth: 80
-                },
-                children: [fmt(ev.qty, 4), " units"]
-              }, void 0, true), isStopEvent && /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textDim,
-                  fontStyle: "italic",
-                  fontSize: 13,
-                  flex: 1,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap"
-                },
-                children: ev.reason
-              }, void 0, false), isExitEvent && pnlForEvent != null && /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: pnlForEvent >= 0 ? green : red,
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontWeight: 600,
-                  marginLeft: "auto"
-                },
-                children: [pnlForEvent >= 0 ? "+" : "-", "$", fmt(Math.abs(pnlForEvent))]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("button", {
-                onClick: () => {
-                  if (isStopEvent) removeStopMove(ev.id);else if (isExitEvent) removeExit(ev.id);else removeEntry(ev.id);
-                },
-                style: {
-                  background: "none",
-                  border: "none",
-                  color: red,
-                  cursor: "pointer",
-                  fontSize: 16,
-                  padding: "0 4px",
-                  marginLeft: isExitEvent ? 0 : "auto"
-                },
-                children: "x"
-              }, void 0, false)]
-            }, `${ev.kind}-${ev.id}`, true);
-          })
-        }, void 0, false)]
-      }, void 0, true)]
-    }, void 0, true), tab === "journal" && /*#__PURE__*/_jsxDEV("div", {
+        fontSize: 14,
+        color: textMain,
+        fontFamily: "'JetBrains Mono', monospace",
+        minWidth: 70
+      }
+    }, "$", fmt(t.price)), /*#__PURE__*/React.createElement("span", {
       style: {
-        maxWidth: 560,
-        margin: "0 auto"
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            marginBottom: 12
-          },
-          children: "Post-Trade Review"
-        }, void 0, false), (setup.asset || posSummary) && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: surface2,
-            borderRadius: 8,
-            padding: 12,
-            marginBottom: 12
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              fontSize: 14,
-              alignItems: "center"
-            },
-            children: [setup.asset && /*#__PURE__*/_jsxDEV("span", {
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMuted
-                },
-                children: "Asset:"
-              }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: "#fff",
-                  fontWeight: 600
-                },
-                children: setup.asset
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMuted
-                },
-                children: "Dir:"
-              }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: setup.direction === "Long" ? green : red,
-                  fontWeight: 600
-                },
-                children: setup.direction
-              }, void 0, false)]
-            }, void 0, true), setup.setupType && /*#__PURE__*/_jsxDEV("span", {
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMuted
-                },
-                children: "Setup:"
-              }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMain
-                },
-                children: setup.setupType
-              }, void 0, false)]
-            }, void 0, true), tradeClosed && /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                marginLeft: "auto",
-                fontSize: 12,
-                fontWeight: 700,
-                color: amber,
-                padding: "2px 8px",
-                background: "rgba(251,191,36,0.15)",
-                borderRadius: 100
-              },
-              children: "CLOSED"
-            }, void 0, false)]
-          }, void 0, true), setup.confirmation && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginTop: 6,
-              fontSize: 13,
-              color: textDim
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMuted
-              },
-              children: "Confirmations:"
-            }, void 0, false), " ", setup.confirmation]
-          }, void 0, true)]
-        }, void 0, true), finalStats && calc && /*#__PURE__*/_jsxDEV("div", {
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: finalStats.totalPnl >= 0 ? "rgba(52,211,153,0.08)" : "rgba(248,113,113,0.08)",
-              border: `1px solid ${finalStats.totalPnl >= 0 ? "rgba(52,211,153,0.25)" : "rgba(248,113,113,0.25)"}`,
-              borderRadius: 10,
-              padding: "16px 14px",
-              marginBottom: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                marginBottom: 4
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: textMuted,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.06em"
-                },
-                children: "Realized P&L"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 24,
-                  fontWeight: 700,
-                  color: finalStats.totalPnl >= 0 ? green : red,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: [finalStats.totalPnl >= 0 ? "+$" : "-$", fmt(Math.abs(finalStats.totalPnl))]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 16,
-                marginTop: 8,
-                fontSize: 14,
-                flexWrap: "wrap"
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textMuted
-                  },
-                  children: "R-multiple:"
-                }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: finalStats.rMultiple >= 0 ? green : red,
-                    fontWeight: 700,
-                    fontFamily: "'JetBrains Mono', monospace"
-                  },
-                  children: [finalStats.rMultiple >= 0 ? "+" : "", finalStats.rMultiple.toFixed(2), "R"]
-                }, void 0, true)]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textMuted
-                  },
-                  children: "Account:"
-                }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: finalStats.pctOfAccount >= 0 ? green : red,
-                    fontWeight: 700,
-                    fontFamily: "'JetBrains Mono', monospace"
-                  },
-                  children: [finalStats.pctOfAccount >= 0 ? "+" : "", finalStats.pctOfAccount.toFixed(2), "%"]
-                }, void 0, true)]
-              }, void 0, true), finalStats.avgExit > 0 && /*#__PURE__*/_jsxDEV("span", {
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textMuted
-                  },
-                  children: "Avg Exit:"
-                }, void 0, false), " ", /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textMain,
-                    fontFamily: "'JetBrains Mono', monospace"
-                  },
-                  children: ["$", fmt(finalStats.avgExit)]
-                }, void 0, true)]
-              }, void 0, true)]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              fontWeight: 700,
-              color: textMuted,
-              textTransform: "uppercase",
-              marginBottom: 6
-            },
-            children: "P&L by Exit Type"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 4,
-              marginBottom: 12
-            },
-            children: ["T1", "T2", "T3", "Close", "StopOut"].map(tier => {
-              const qty = finalStats.tierQty[tier];
-              if (!qty) return null;
-              const pnl = finalStats.tierPnl[tier];
-              return /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  background: surface2,
-                  borderRadius: 6,
-                  padding: "8px 12px",
-                  fontSize: 14
-                },
-                children: [/*#__PURE__*/_jsxDEV(Badge, {
-                  kind: tier
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textDim,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    minWidth: 80
-                  },
-                  children: [fmt(qty, 4), " units"]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: pnl >= 0 ? green : red,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontWeight: 600,
-                    marginLeft: "auto"
-                  },
-                  children: [pnl >= 0 ? "+$" : "-$", fmt(Math.abs(pnl))]
-                }, void 0, true)]
-              }, tier, true);
-            })
-          }, void 0, false), posSummary && finalStats.avgExit > 0 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginBottom: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                background: surface2,
-                borderRadius: 7,
-                padding: "8px 10px",
-                textAlign: "center"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted,
-                  textTransform: "uppercase"
-                },
-                children: "Avg Entry"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: textMain,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: ["$", fmt(posSummary.avgEntry)]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                background: surface2,
-                borderRadius: 7,
-                padding: "8px 10px",
-                textAlign: "center"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted,
-                  textTransform: "uppercase"
-                },
-                children: "Avg Exit"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: textMain,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: ["$", fmt(finalStats.avgExit)]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                background: surface2,
-                borderRadius: 7,
-                padding: "8px 10px",
-                textAlign: "center"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted,
-                  textTransform: "uppercase"
-                },
-                children: "Move %"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 16,
-                  fontWeight: 700,
-                  color: finalStats.totalPnl >= 0 ? green : red,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: pct((finalStats.avgExit - posSummary.avgEntry) / posSummary.avgEntry * 100 * (posSummary.isLong ? 1 : -1))
-              }, void 0, false)]
-            }, void 0, true)]
-          }, void 0, true), (stopMoves.length > 0 || calc) && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginBottom: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontWeight: 700,
-                color: textMuted,
-                textTransform: "uppercase",
-                marginBottom: 6
-              },
-              children: "Stop Journey"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                background: surface2,
-                borderRadius: 7,
-                padding: "10px 12px"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  gap: 6,
-                  fontSize: 13,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: [calc && /*#__PURE__*/_jsxDEV(_Fragment, {
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: red,
-                      fontWeight: 700
-                    },
-                    children: ["$", fmt(calc.s)]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: textMuted
-                    },
-                    children: "(initial)"
-                  }, void 0, false)]
-                }, void 0, true), stopMoves.map(sm => /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: textMuted
-                    },
-                    children: "→"
-                  }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: amber,
-                      fontWeight: 700
-                    },
-                    children: ["$", fmt(sm.price)]
-                  }, void 0, true)]
-                }, sm.id, true))]
-              }, void 0, true), stopMoves.length > 0 && /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  marginTop: 8,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 3
-                },
-                children: stopMoves.map((sm, i) => /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 12,
-                    color: textDim
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: amber,
-                      fontWeight: 700
-                    },
-                    children: ["Move ", i + 1, ":"]
-                  }, void 0, true), " ", sm.reason]
-                }, sm.id, true))
-              }, void 0, false)]
-            }, void 0, true)]
-          }, void 0, true)]
-        }, void 0, true), posSummary && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginBottom: 12
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                background: surface2,
-                borderRadius: 7,
-                padding: "10px 12px"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted,
-                  textTransform: "uppercase",
-                  marginBottom: 4
-                },
-                children: ["Entries (", entries.length, ")"]
-              }, void 0, true), entries.map(en => /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 13,
-                  color: textMain,
-                  fontFamily: "'JetBrains Mono', monospace",
-                  marginBottom: 2
-                },
-                children: ["#", en.seq, ": ", fmt(en.qty, 4), " @ $", fmt(en.price)]
-              }, en.id, true)), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  borderTop: `1px solid ${border}`,
-                  marginTop: 4,
-                  paddingTop: 4,
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: accent
-                },
-                children: ["Avg: $", fmt(posSummary.avgEntry), " | Total: ", fmt(posSummary.totalQty, 4)]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: 1,
-                background: surface2,
-                borderRadius: 7,
-                padding: "10px 12px"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted,
-                  textTransform: "uppercase",
-                  marginBottom: 4
-                },
-                children: ["Exits (", exits.length, ")"]
-              }, void 0, true), exits.map(ex => {
-                const pnlPerUnit = posSummary.isLong ? ex.price - posSummary.avgEntry : posSummary.avgEntry - ex.price;
-                return /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 13,
-                    color: textMain,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    marginBottom: 2
-                  },
-                  children: [ex.tier, ": ", fmt(ex.qty, 4), " @ $", fmt(ex.price), " ", /*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: pnlPerUnit >= 0 ? green : red
-                    },
-                    children: ["(", pnlPerUnit >= 0 ? "+" : "", fmt(pnlPerUnit * ex.qty), ")"]
-                  }, void 0, true)]
-                }, ex.id, true);
-              }), exits.length === 0 && /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 13,
-                  color: textMuted,
-                  fontStyle: "italic"
-                },
-                children: "No exits yet"
-              }, void 0, false), exits.length > 0 && finalStats && /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  borderTop: `1px solid ${border}`,
-                  marginTop: 4,
-                  paddingTop: 4,
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: finalStats.totalPnl >= 0 ? green : red
-                },
-                children: ["Total: ", finalStats.totalPnl >= 0 ? "+" : "", "$", fmt(finalStats.totalPnl)]
-              }, void 0, true)]
-            }, void 0, true)]
-          }, void 0, true), posSummary.remainQty > 0 && !tradeClosed && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              marginTop: 8,
-              background: "rgba(167,139,250,0.06)",
-              border: `1px solid rgba(167,139,250,0.15)`,
-              borderRadius: 7,
-              padding: "8px 12px",
-              fontSize: 13
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: accent,
-                fontWeight: 700
-              },
-              children: "Open:"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textMain,
-                fontFamily: "'JetBrains Mono', monospace",
-                marginLeft: 6
-              },
-              children: [fmt(posSummary.remainQty, 4), " units @ avg $", fmt(posSummary.avgEntry)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: textDim,
-                marginLeft: 6
-              },
-              children: ["(", (posSummary.remainQty / posSummary.totalQty * 100).toFixed(0), "% of position)"]
-            }, void 0, true)]
-          }, void 0, true)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: labelStyle,
-            children: "Trade Notes"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("textarea", {
-            value: setup.notes,
-            onChange: e => upd("notes", e.target.value),
-            placeholder: "What did you observe? What went well? What would you do differently?",
-            style: {
-              ...inputStyle,
-              minHeight: 100,
-              resize: "vertical",
-              lineHeight: 1.5
-            }
-          }, void 0, false)]
-        }, void 0, true), tradeClosed && finalStats ? /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginTop: 16
-          },
-          children: currentLoggedId == null ? /*#__PURE__*/_jsxDEV("button", {
-            onClick: logTrade,
-            style: {
-              width: "100%",
-              padding: "16px 16px",
-              borderRadius: 8,
-              border: `2px solid ${accent}`,
-              background: accentDim,
-              color: accent,
-              fontWeight: 700,
-              fontSize: 16,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              cursor: "pointer"
-            },
-            children: "LOG TRADE"
-          }, void 0, false) : /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              padding: "12px 16px",
-              borderRadius: 8,
-              background: "rgba(52,211,153,0.12)",
-              border: `1px solid ${green}`,
-              color: green,
-              fontWeight: 700,
-              textAlign: "center",
-              fontSize: 14
-            },
-            children: "✓ Trade logged. View in \"Logged Trades\" tab. Hit Reset to start a new one."
-          }, void 0, false)
-        }, void 0, false) : posSummary ? /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            marginTop: 16,
-            padding: "10px 14px",
-            borderRadius: 8,
-            background: "rgba(251,191,36,0.06)",
-            border: `1px dashed rgba(251,191,36,0.3)`,
-            color: amber,
-            fontSize: 13,
-            textAlign: "center"
-          },
-          children: "Close the trade (Stopped Out or Manual Close) to enable LOG TRADE"
-        }, void 0, false) : null]
-      }, void 0, true)
-    }, void 0, false), tab === "logged" && /*#__PURE__*/_jsxDEV("div", {
+        fontSize: 13,
+        color: t.rr >= 2 ? green : t.rr >= 1 ? amber : red,
+        fontWeight: 600,
+        minWidth: 45
+      }
+    }, t.rr.toFixed(1), "R"), /*#__PURE__*/React.createElement("span", {
       style: {
-        maxWidth: 920,
-        margin: "0 auto"
+        fontSize: 13,
+        color: textDim,
+        minWidth: 55
+      }
+    }, pct(t.distPct)), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 13,
+        color: green,
+        fontFamily: "'JetBrains Mono', monospace",
+        marginLeft: "auto"
+      }
+    }, "+$", fmt(tierPnl)));
+  })), calc.tiers.every(t => t) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: 8,
+      padding: "8px 12px",
+      background: "rgba(52,211,153,0.08)",
+      border: `1px solid rgba(52,211,153,0.2)`,
+      borderRadius: 7
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: green
+    }
+  }, "Total P&L if all targets hit"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: green,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "+$", fmt(calc.tiers.reduce((sum, t, i) => sum + (t ? t.pnl * [0.33, 0.33, 0.34][i] : 0), 0))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 14,
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, calc.isLong && calc.s >= calc.e && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5
+    }
+  }, "Warning: Stop is above entry for a Long trade"), !calc.isLong && calc.s <= calc.e && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5
+    }
+  }, "Warning: Stop is below entry for a Short trade"), calc.marginPct > 100 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: red,
+      padding: "4px 8px",
+      background: "rgba(248,113,113,0.08)",
+      borderRadius: 5
+    }
+  }, "Margin required ($", fmt(calc.marginRequired), ") exceeds account size"), calc.stopPct > 10 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: amber,
+      padding: "4px 8px",
+      background: "rgba(251,191,36,0.08)",
+      borderRadius: 5
+    }
+  }, "Note: Wide stop (", calc.stopPct.toFixed(1), "%) - consider reducing position size"), calc.tiers[0] && calc.tiers[0].rr < 1 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: amber,
+      padding: "4px 8px",
+      background: "rgba(251,191,36,0.08)",
+      borderRadius: 5
+    }
+  }, "TP1 is below 1R - minimum R:R should be 1:1"))), /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 10
+    }
+  }, "Setup Context"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Setup Type",
+    value: setup.setupType,
+    onChange: v => upd("setupType", v),
+    placeholder: "Breakout / Pullback / S&R bounce..."
+  }), /*#__PURE__*/React.createElement(Field, {
+    label: "Confirmation Signals",
+    value: setup.confirmation,
+    onChange: v => upd("confirmation", v),
+    placeholder: "Volume spike, bullish engulfing, RSI divergence..."
+  })))), tab === "tracker" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 580,
+      margin: "0 auto"
+    }
+  }, calc ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...cardStyle,
+      padding: "10px 14px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 14,
+      fontSize: 13,
+      flexWrap: "wrap",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted,
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
+      fontSize: 12
+    }
+  }, "Plan"), setup.asset && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Asset "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#fff",
+      fontWeight: 600
+    }
+  }, setup.asset)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Dir "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: setup.direction === "Long" ? green : red,
+      fontWeight: 600
+    }
+  }, setup.direction)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Entry "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.e))), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Stop "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: red,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.s))), calc.tiers[0] && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "TP1 "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: accent,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.tiers[0].price))), calc.tiers[1] && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "TP2 "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: blue,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.tiers[1].price))), calc.tiers[2] && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "TP3 "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: green,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.tiers[2].price))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Risk "), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: red,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(calc.riskAmt))))) : /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...cardStyle,
+      padding: "10px 14px",
+      textAlign: "center",
+      color: textDim,
+      fontSize: 13
+    }
+  }, "Fill in your Pre-Trade Plan first so the Plan reference appears here."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...cardStyle,
+      border: `1px solid rgba(167,139,250,0.25)`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff"
+    }
+  }, "Live Position State"), tradeClosed && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: amber,
+      padding: "2px 8px",
+      background: "rgba(251,191,36,0.15)",
+      borderRadius: 100,
+      letterSpacing: "0.06em"
+    }
+  }, "TRADE CLOSED")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      background: surface2,
+      borderRadius: 8,
+      padding: "12px 8px"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Avg Entry",
+    value: posSummary ? "$" + fmt(posSummary.avgEntry) : "-",
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Total Qty",
+    value: posSummary ? fmt(posSummary.totalQty, 4) : "-",
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Remaining",
+    value: posSummary ? fmt(posSummary.remainQty, 4) : "-",
+    color: posSummary && posSummary.remainQty > 0 ? green : textDim,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Curr. Stop",
+    value: currentStop != null ? "$" + fmt(currentStop) : "-",
+    color: amber,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Realized P&L",
+    value: posSummary ? (posSummary.realizedPnl >= 0 ? "+$" : "-$") + fmt(Math.abs(posSummary.realizedPnl)) : "-",
+    color: posSummary ? posSummary.realizedPnl >= 0 ? green : red : textDim,
+    small: true
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff"
+    }
+  }, "Log an Action"), tradeClosed && /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: textMuted,
+      fontStyle: "italic"
+    }
+  }, "Trade closed — reset to start a new one")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      marginBottom: 14,
+      flexWrap: "wrap"
+    }
+  }, !hasPosition ? /*#__PURE__*/React.createElement(ActionPill, {
+    type: "entry",
+    active: actionType === "entry",
+    onClick: () => setActionType("entry"),
+    disabled: tradeClosed
+  }) : /*#__PURE__*/React.createElement(ActionPill, {
+    type: "add",
+    active: actionType === "add",
+    onClick: () => setActionType("add"),
+    disabled: tradeClosed
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "tp1",
+    active: actionType === "tp1",
+    onClick: () => setActionType("tp1"),
+    disabled: tradeClosed || !hasPosition
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "tp2",
+    active: actionType === "tp2",
+    onClick: () => setActionType("tp2"),
+    disabled: tradeClosed || !hasPosition
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "tp3",
+    active: actionType === "tp3",
+    onClick: () => setActionType("tp3"),
+    disabled: tradeClosed || !hasPosition
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "stop",
+    active: actionType === "stop",
+    onClick: () => {
+      setActionType("stop");
+      if (calc && !newAction.price && !newAction.reason) {
+        setNewAction({
+          price: String(calc.e),
+          qty: "",
+          reason: "Move to BE after 1R"
+        });
+      }
+    },
+    disabled: tradeClosed || !hasPosition
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "stopout",
+    active: actionType === "stopout",
+    onClick: () => setActionType("stopout"),
+    disabled: tradeClosed || !hasPosition
+  }), /*#__PURE__*/React.createElement(ActionPill, {
+    type: "close",
+    active: actionType === "close",
+    onClick: () => setActionType("close"),
+    disabled: tradeClosed || !hasPosition
+  })), renderActionFields(), /*#__PURE__*/React.createElement("button", {
+    onClick: submitAction,
+    disabled: tradeClosed,
+    style: {
+      marginTop: 12,
+      padding: "10px 16px",
+      borderRadius: 6,
+      border: `1px solid ${tradeClosed ? border : meta.color}`,
+      background: tradeClosed ? "transparent" : meta.color + "22",
+      color: tradeClosed ? textMuted : meta.color,
+      fontWeight: 700,
+      fontSize: 15,
+      cursor: tradeClosed ? "not-allowed" : "pointer",
+      width: "100%",
+      transition: "all 0.15s"
+    }
+  }, meta.submit)), chronoLog.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 10
+    }
+  }, "Trade Log (", chronoLog.length, " actions)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, chronoLog.map((ev, i) => {
+    const isExitEvent = ["T1", "T2", "T3", "Close", "StopOut"].includes(ev.kind);
+    const isStopEvent = ev.kind === "stop";
+    const isEntryEvent = ev.kind === "entry" || ev.kind === "add";
+    let pnlForEvent = null;
+    if (isExitEvent && posSummary) {
+      const pnlPerUnit = posSummary.isLong ? ev.price - posSummary.avgEntry : posSummary.avgEntry - ev.price;
+      pnlForEvent = pnlPerUnit * ev.qty;
+    }
+    return /*#__PURE__*/React.createElement("div", {
+      key: `${ev.kind}-${ev.id}`,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "8px 10px",
+        background: surface2,
+        borderRadius: 6,
+        fontSize: 14
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: textMuted,
+        fontWeight: 700,
+        minWidth: 22,
+        fontSize: 13,
+        fontFamily: "'JetBrains Mono', monospace"
+      }
+    }, "#", i + 1), /*#__PURE__*/React.createElement(Badge, {
+      kind: ev.kind
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: textMain,
+        fontFamily: "'JetBrains Mono', monospace",
+        minWidth: 80
+      }
+    }, "$", fmt(ev.price)), (isEntryEvent || isExitEvent) && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: textDim,
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 13,
+        minWidth: 80
+      }
+    }, fmt(ev.qty, 4), " units"), isStopEvent && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: textDim,
+        fontStyle: "italic",
+        fontSize: 13,
+        flex: 1,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, ev.reason), isExitEvent && pnlForEvent != null && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: pnlForEvent >= 0 ? green : red,
+        fontFamily: "'JetBrains Mono', monospace",
+        fontWeight: 600,
+        marginLeft: "auto"
+      }
+    }, pnlForEvent >= 0 ? "+" : "-", "$", fmt(Math.abs(pnlForEvent))), /*#__PURE__*/React.createElement("button", {
+      onClick: () => {
+        if (isStopEvent) removeStopMove(ev.id);else if (isExitEvent) removeExit(ev.id);else removeEntry(ev.id);
       },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: cardStyle,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 14,
-            flexWrap: "wrap",
-            gap: 8
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              color: "#fff"
-            },
-            children: ["Logged Trades (", loggedTrades.length, ")"]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 6
-            },
-            children: [/*#__PURE__*/_jsxDEV("button", {
-              onClick: exportCSV,
-              disabled: loggedTrades.length === 0,
-              style: {
-                padding: "8px 14px",
-                borderRadius: 6,
-                border: `1px solid ${green}`,
-                background: "rgba(52,211,153,0.12)",
-                color: loggedTrades.length === 0 ? textMuted : green,
-                fontWeight: 700,
-                fontSize: 13,
-                cursor: loggedTrades.length === 0 ? "not-allowed" : "pointer",
-                opacity: loggedTrades.length === 0 ? 0.4 : 1
-              },
-              children: "Export CSV"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              onClick: () => {
-                if (window.confirm("Delete ALL logged trades? This cannot be undone.")) clearAllLoggedTrades();
-              },
-              disabled: loggedTrades.length === 0,
-              style: {
-                padding: "8px 14px",
-                borderRadius: 6,
-                border: `1px solid ${red}`,
-                background: "transparent",
-                color: loggedTrades.length === 0 ? textMuted : red,
-                fontWeight: 700,
-                fontSize: 13,
-                cursor: loggedTrades.length === 0 ? "not-allowed" : "pointer",
-                opacity: loggedTrades.length === 0 ? 0.4 : 1
-              },
-              children: "Clear All"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), loggedTrades.length === 0 ? /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            textAlign: "center",
-            padding: 40,
-            color: textDim,
-            fontSize: 14
-          },
-          children: "No trades logged yet. Run a trade through tabs 1 → 2 → 3, close it, then click LOG TRADE on the Post-Trade Review tab."
-        }, void 0, false) : analytics ? /*#__PURE__*/_jsxDEV(_Fragment, {
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 8,
-              marginBottom: 16,
-              background: surface2,
-              borderRadius: 8,
-              padding: "12px 8px",
-              flexWrap: "wrap"
-            },
-            children: [/*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Total Trades",
-              value: String(analytics.n),
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Wins",
-              value: String(analytics.wins),
-              color: green,
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Losses",
-              value: String(analytics.losses),
-              color: red,
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Win Rate",
-              value: analytics.winRate.toFixed(0) + "%",
-              color: analytics.winRate >= 50 ? green : amber,
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Total P&L",
-              value: (analytics.totalPnl >= 0 ? "+$" : "-$") + fmt(Math.abs(analytics.totalPnl)),
-              color: analytics.totalPnl >= 0 ? green : red,
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Total R",
-              value: (analytics.totalR >= 0 ? "+" : "") + analytics.totalR.toFixed(2) + "R",
-              color: analytics.totalR >= 0 ? green : red,
-              small: true
-            }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-              label: "Avg R/Trade",
-              value: (analytics.avgR >= 0 ? "+" : "") + analytics.avgR.toFixed(2) + "R",
-              color: analytics.avgR >= 0 ? green : red,
-              small: true
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: surface2,
-              borderRadius: 8,
-              padding: "14px 12px",
-              marginBottom: 14
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: sectionLabel,
-              children: "Expectancy"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 8,
-                flexWrap: "wrap"
-              },
-              children: [/*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Expectancy",
-                value: (analytics.expectancy >= 0 ? "+" : "") + analytics.expectancy.toFixed(3) + "R",
-                color: analytics.expectancy >= 0 ? green : red,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Avg Win",
-                value: (analytics.avgWinR >= 0 ? "+" : "") + analytics.avgWinR.toFixed(2) + "R",
-                color: green,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Avg Loss",
-                value: analytics.avgLossR.toFixed(2) + "R",
-                color: red,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "W/L Ratio",
-                value: analytics.wlRatio.toFixed(2),
-                color: analytics.wlRatio >= 1 ? green : amber,
-                small: true
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                marginTop: 10,
-                padding: "8px 12px",
-                background: surface,
-                borderRadius: 6,
-                fontSize: 12,
-                color: textDim,
-                lineHeight: 1.5
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: textMuted,
-                  fontWeight: 700
-                },
-                children: "Read:"
-              }, void 0, false), " for every $1 of risk you take, you earn back ", /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  color: analytics.expectancy >= 0 ? green : red,
-                  fontWeight: 700,
-                  fontFamily: "'JetBrains Mono', monospace"
-                },
-                children: (analytics.expectancy >= 0 ? "+" : "") + analytics.expectancy.toFixed(3)
-              }, void 0, false), " on average. ", analytics.expectancy >= 0 ? "Strategy is profitable over this sample." : "Strategy is unprofitable over this sample — investigate which trades are dragging you down."]
-            }, void 0, true)]
-          }, void 0, true), analytics.curve.length > 1 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: surface2,
-              borderRadius: 8,
-              padding: "14px 12px",
-              marginBottom: 14
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: 8
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: sectionLabel,
-                children: "Equity Curve (Cumulative P&L)"
-              }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  fontSize: 11,
-                  color: textMuted
-                },
-                children: "x-axis: trade number"
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV(EquityCurve, {
-              curve: analytics.curve,
-              mode: "pnl"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: surface2,
-              borderRadius: 8,
-              padding: "14px 12px",
-              marginBottom: 14
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: sectionLabel,
-              children: "R-Multiple Distribution"
-            }, void 0, false), /*#__PURE__*/_jsxDEV(RHistogram, {
-              buckets: analytics.buckets
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                marginTop: 6,
-                fontSize: 11,
-                color: textMuted,
-                textAlign: "center"
-              },
-              children: "Shape of returns: positive skew (big winners) means a few trades pay for the losses."
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: surface2,
-              borderRadius: 8,
-              padding: "14px 12px",
-              marginBottom: 14
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: sectionLabel,
-              children: "Streaks & Drawdown"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 8,
-                flexWrap: "wrap"
-              },
-              children: [/*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Current Streak",
-                value: analytics.curStreak === 0 ? "—" : analytics.curStreak > 0 ? analytics.curStreak + "W" : Math.abs(analytics.curStreak) + "L",
-                color: analytics.curStreak > 0 ? green : analytics.curStreak < 0 ? red : textDim,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Max Win Streak",
-                value: String(analytics.maxWinStreak),
-                color: green,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Max Loss Streak",
-                value: String(analytics.maxLossStreak),
-                color: red,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Max DD $",
-                value: "$" + fmt0(analytics.maxDD),
-                color: red,
-                small: true
-              }, void 0, false), /*#__PURE__*/_jsxDEV(StatBox, {
-                label: "Max DD %",
-                value: analytics.maxDDPct.toFixed(2) + "%",
-                color: analytics.maxDDPct > 20 ? red : analytics.maxDDPct > 10 ? amber : textDim,
-                small: true
-              }, void 0, false)]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              ...cardStyle,
-              padding: "14px 12px",
-              marginBottom: 14
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 15,
-                fontWeight: 700,
-                color: "#fff",
-                marginBottom: 12
-              },
-              children: "Performance Breakdown"
-            }, void 0, false), /*#__PURE__*/_jsxDEV(BreakdownTable, {
-              title: "By Setup Type",
-              rows: analytics.bySetup,
-              keyLabel: "Setup"
-            }, void 0, false), /*#__PURE__*/_jsxDEV(BreakdownTable, {
-              title: "By Asset",
-              rows: analytics.byAsset,
-              keyLabel: "Asset"
-            }, void 0, false), /*#__PURE__*/_jsxDEV(BreakdownTable, {
-              title: "By Direction",
-              rows: analytics.byDirection,
-              keyLabel: "Direction"
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: sectionLabel,
-            children: ["All Trades (", loggedTrades.length, ")"]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 4
-            },
-            children: [...loggedTrades].reverse().map(t => /*#__PURE__*/_jsxDEV("details", {
-              style: {
-                background: surface2,
-                borderRadius: 6
-              },
-              children: [/*#__PURE__*/_jsxDEV("summary", {
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "10px 12px",
-                  fontSize: 13,
-                  cursor: "pointer",
-                  listStyle: "none"
-                },
-                children: [/*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textMuted,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    minWidth: 100
-                  },
-                  children: new Date(t.date_logged).toLocaleDateString()
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: "#fff",
-                    fontWeight: 600,
-                    minWidth: 90
-                  },
-                  children: t.asset || "—"
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: t.direction === "Long" ? green : red,
-                    fontWeight: 700,
-                    minWidth: 50
-                  },
-                  children: t.direction
-                }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: t.r_multiple >= 0 ? green : red,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontWeight: 700,
-                    minWidth: 70
-                  },
-                  children: [t.r_multiple >= 0 ? "+" : "", t.r_multiple.toFixed(2), "R"]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: t.realized_pnl_usd >= 0 ? green : red,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    minWidth: 100
-                  },
-                  children: [t.realized_pnl_usd >= 0 ? "+$" : "-$", fmt(Math.abs(t.realized_pnl_usd))]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    color: textDim,
-                    fontSize: 12,
-                    fontFamily: "'JetBrains Mono', monospace",
-                    minWidth: 70
-                  },
-                  children: [t.pct_of_account >= 0 ? "+" : "", t.pct_of_account.toFixed(2), "%"]
-                }, void 0, true), t.stopped_out && /*#__PURE__*/_jsxDEV(Badge, {
-                  kind: "StopOut"
-                }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-                  onClick: e => {
-                    e.preventDefault();
-                    if (window.confirm("Delete this logged trade?")) deleteLoggedTrade(t.id);
-                  },
-                  style: {
-                    background: "none",
-                    border: "none",
-                    color: red,
-                    cursor: "pointer",
-                    fontSize: 16,
-                    marginLeft: "auto",
-                    padding: "0 4px"
-                  },
-                  children: "x"
-                }, void 0, false)]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  padding: "0 14px 14px",
-                  fontSize: 13
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    display: "flex",
-                    gap: 14,
-                    flexWrap: "wrap",
-                    color: textDim,
-                    marginBottom: 8,
-                    paddingTop: 8,
-                    borderTop: `1px solid ${border}`
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Setup:"
-                    }, void 0, false), " ", t.setup_type || "—"]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Plan Entry:"
-                    }, void 0, false), " $", fmt(t.planned_entry)]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Avg Entry:"
-                    }, void 0, false), " $", fmt(t.avg_entry)]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Avg Exit:"
-                    }, void 0, false), " $", fmt(t.avg_exit)]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Risk:"
-                    }, void 0, false), " $", fmt(t.risk_amount), " (", t.risk_pct, "%)"]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Adds:"
-                    }, void 0, false), " ", t.num_adds]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "TPs:"
-                    }, void 0, false), " ", t.num_partial_tps]
-                  }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-                    children: [/*#__PURE__*/_jsxDEV("span", {
-                      style: {
-                        color: textMuted
-                      },
-                      children: "Stop Moves:"
-                    }, void 0, false), " ", t.num_stop_moves]
-                  }, void 0, true)]
-                }, void 0, true), t.confirmation && /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 12,
-                    color: textDim,
-                    marginBottom: 6
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: textMuted
-                    },
-                    children: "Confirmations:"
-                  }, void 0, false), " ", t.confirmation]
-                }, void 0, true), t.action_history && t.action_history.length > 0 && /*#__PURE__*/_jsxDEV("div", {
-                  children: [/*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      fontSize: 12,
-                      fontWeight: 700,
-                      color: textMuted,
-                      textTransform: "uppercase",
-                      marginBottom: 6
-                    },
-                    children: "Action History"
-                  }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                    style: {
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 3
-                    },
-                    children: t.action_history.map((ev, i) => /*#__PURE__*/_jsxDEV("div", {
-                      style: {
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 8,
-                        padding: "5px 8px",
-                        background: surface,
-                        borderRadius: 5,
-                        fontSize: 12
-                      },
-                      children: [/*#__PURE__*/_jsxDEV("span", {
-                        style: {
-                          color: textMuted,
-                          minWidth: 22,
-                          fontFamily: "'JetBrains Mono', monospace"
-                        },
-                        children: ["#", i + 1]
-                      }, void 0, true), /*#__PURE__*/_jsxDEV(Badge, {
-                        kind: ev.kind
-                      }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                        style: {
-                          fontFamily: "'JetBrains Mono', monospace",
-                          minWidth: 80
-                        },
-                        children: ["$", fmt(ev.price)]
-                      }, void 0, true), ev.qty != null && /*#__PURE__*/_jsxDEV("span", {
-                        style: {
-                          color: textDim,
-                          fontFamily: "'JetBrains Mono', monospace"
-                        },
-                        children: [fmt(ev.qty, 4), " units"]
-                      }, void 0, true), ev.reason && /*#__PURE__*/_jsxDEV("span", {
-                        style: {
-                          color: textDim,
-                          fontStyle: "italic"
-                        },
-                        children: ev.reason
-                      }, void 0, false)]
-                    }, i, true))
-                  }, void 0, false)]
-                }, void 0, true), t.trade_notes && /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    marginTop: 8,
-                    padding: "8px 10px",
-                    background: surface,
-                    borderRadius: 5,
-                    fontSize: 12,
-                    color: textDim
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      color: textMuted,
-                      fontWeight: 700
-                    },
-                    children: "Notes:"
-                  }, void 0, false), " ", t.trade_notes]
-                }, void 0, true)]
-              }, void 0, true)]
-            }, t.id, true))
-          }, void 0, false)]
-        }, void 0, true) : null]
-      }, void 0, true)
-    }, void 0, false)]
-  }, void 0, true);
+      style: {
+        background: "none",
+        border: "none",
+        color: red,
+        cursor: "pointer",
+        fontSize: 16,
+        padding: "0 4px",
+        marginLeft: isExitEvent ? 0 : "auto"
+      }
+    }, "x"));
+  })))), tab === "journal" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 560,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 12
+    }
+  }, "Post-Trade Review"), (setup.asset || posSummary) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 8,
+      padding: 12,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 12,
+      flexWrap: "wrap",
+      fontSize: 14,
+      alignItems: "center"
+    }
+  }, setup.asset && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Asset:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#fff",
+      fontWeight: 600
+    }
+  }, setup.asset)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Dir:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: setup.direction === "Long" ? green : red,
+      fontWeight: 600
+    }
+  }, setup.direction)), setup.setupType && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Setup:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMain
+    }
+  }, setup.setupType)), tradeClosed && /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: "auto",
+      fontSize: 12,
+      fontWeight: 700,
+      color: amber,
+      padding: "2px 8px",
+      background: "rgba(251,191,36,0.15)",
+      borderRadius: 100
+    }
+  }, "CLOSED")), setup.confirmation && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 6,
+      fontSize: 13,
+      color: textDim
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Confirmations:"), " ", setup.confirmation)), finalStats && calc && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: finalStats.totalPnl >= 0 ? "rgba(52,211,153,0.08)" : "rgba(248,113,113,0.08)",
+      border: `1px solid ${finalStats.totalPnl >= 0 ? "rgba(52,211,153,0.25)" : "rgba(248,113,113,0.25)"}`,
+      borderRadius: 10,
+      padding: "16px 14px",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "baseline",
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em"
+    }
+  }, "Realized P&L"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 24,
+      fontWeight: 700,
+      color: finalStats.totalPnl >= 0 ? green : red,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, finalStats.totalPnl >= 0 ? "+$" : "-$", fmt(Math.abs(finalStats.totalPnl)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 16,
+      marginTop: 8,
+      fontSize: 14,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "R-multiple:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: finalStats.rMultiple >= 0 ? green : red,
+      fontWeight: 700,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, finalStats.rMultiple >= 0 ? "+" : "", finalStats.rMultiple.toFixed(2), "R")), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Account:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: finalStats.pctOfAccount >= 0 ? green : red,
+      fontWeight: 700,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, finalStats.pctOfAccount >= 0 ? "+" : "", finalStats.pctOfAccount.toFixed(2), "%")), finalStats.avgExit > 0 && /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Avg Exit:"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(finalStats.avgExit))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 6
+    }
+  }, "P&L by Exit Type"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4,
+      marginBottom: 12
+    }
+  }, ["T1", "T2", "T3", "Close", "StopOut"].map(tier => {
+    const qty = finalStats.tierQty[tier];
+    if (!qty) return null;
+    const pnl = finalStats.tierPnl[tier];
+    return /*#__PURE__*/React.createElement("div", {
+      key: tier,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        background: surface2,
+        borderRadius: 6,
+        padding: "8px 12px",
+        fontSize: 14
+      }
+    }, /*#__PURE__*/React.createElement(Badge, {
+      kind: tier
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: textDim,
+        fontFamily: "'JetBrains Mono', monospace",
+        minWidth: 80
+      }
+    }, fmt(qty, 4), " units"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: pnl >= 0 ? green : red,
+        fontFamily: "'JetBrains Mono', monospace",
+        fontWeight: 600,
+        marginLeft: "auto"
+      }
+    }, pnl >= 0 ? "+$" : "-$", fmt(Math.abs(pnl))));
+  })), posSummary && finalStats.avgExit > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: surface2,
+      borderRadius: 7,
+      padding: "8px 10px",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase"
+    }
+  }, "Avg Entry"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(posSummary.avgEntry))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: surface2,
+      borderRadius: 7,
+      padding: "8px 10px",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase"
+    }
+  }, "Avg Exit"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "$", fmt(finalStats.avgExit))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: surface2,
+      borderRadius: 7,
+      padding: "8px 10px",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase"
+    }
+  }, "Move %"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      color: finalStats.totalPnl >= 0 ? green : red,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, pct((finalStats.avgExit - posSummary.avgEntry) / posSummary.avgEntry * 100 * (posSummary.isLong ? 1 : -1))))), (stopMoves.length > 0 || calc) && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 6
+    }
+  }, "Stop Journey"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 7,
+      padding: "10px 12px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "center",
+      gap: 6,
+      fontSize: 13,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, calc && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: red,
+      fontWeight: 700
+    }
+  }, "$", fmt(calc.s)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "(initial)")), stopMoves.map(sm => /*#__PURE__*/React.createElement("span", {
+    key: sm.id,
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "→"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: amber,
+      fontWeight: 700
+    }
+  }, "$", fmt(sm.price))))), stopMoves.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      display: "flex",
+      flexDirection: "column",
+      gap: 3
+    }
+  }, stopMoves.map((sm, i) => /*#__PURE__*/React.createElement("div", {
+    key: sm.id,
+    style: {
+      fontSize: 12,
+      color: textDim
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: amber,
+      fontWeight: 700
+    }
+  }, "Move ", i + 1, ":"), " ", sm.reason)))))), posSummary && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: surface2,
+      borderRadius: 7,
+      padding: "10px 12px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 4
+    }
+  }, "Entries (", entries.length, ")"), entries.map(en => /*#__PURE__*/React.createElement("div", {
+    key: en.id,
+    style: {
+      fontSize: 13,
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace",
+      marginBottom: 2
+    }
+  }, "#", en.seq, ": ", fmt(en.qty, 4), " @ $", fmt(en.price))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${border}`,
+      marginTop: 4,
+      paddingTop: 4,
+      fontSize: 13,
+      fontWeight: 700,
+      color: accent
+    }
+  }, "Avg: $", fmt(posSummary.avgEntry), " | Total: ", fmt(posSummary.totalQty, 4))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: surface2,
+      borderRadius: 7,
+      padding: "10px 12px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 4
+    }
+  }, "Exits (", exits.length, ")"), exits.map(ex => {
+    const pnlPerUnit = posSummary.isLong ? ex.price - posSummary.avgEntry : posSummary.avgEntry - ex.price;
+    return /*#__PURE__*/React.createElement("div", {
+      key: ex.id,
+      style: {
+        fontSize: 13,
+        color: textMain,
+        fontFamily: "'JetBrains Mono', monospace",
+        marginBottom: 2
+      }
+    }, ex.tier, ": ", fmt(ex.qty, 4), " @ $", fmt(ex.price), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: pnlPerUnit >= 0 ? green : red
+      }
+    }, "(", pnlPerUnit >= 0 ? "+" : "", fmt(pnlPerUnit * ex.qty), ")"));
+  }), exits.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: textMuted,
+      fontStyle: "italic"
+    }
+  }, "No exits yet"), exits.length > 0 && finalStats && /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${border}`,
+      marginTop: 4,
+      paddingTop: 4,
+      fontSize: 13,
+      fontWeight: 700,
+      color: finalStats.totalPnl >= 0 ? green : red
+    }
+  }, "Total: ", finalStats.totalPnl >= 0 ? "+" : "", "$", fmt(finalStats.totalPnl)))), posSummary.remainQty > 0 && !tradeClosed && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      background: "rgba(167,139,250,0.06)",
+      border: `1px solid rgba(167,139,250,0.15)`,
+      borderRadius: 7,
+      padding: "8px 12px",
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: accent,
+      fontWeight: 700
+    }
+  }, "Open:"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMain,
+      fontFamily: "'JetBrains Mono', monospace",
+      marginLeft: 6
+    }
+  }, fmt(posSummary.remainQty, 4), " units @ avg $", fmt(posSummary.avgEntry)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textDim,
+      marginLeft: 6
+    }
+  }, "(", (posSummary.remainQty / posSummary.totalQty * 100).toFixed(0), "% of position)"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: labelStyle
+  }, "Trade Notes"), /*#__PURE__*/React.createElement("textarea", {
+    value: setup.notes,
+    onChange: e => upd("notes", e.target.value),
+    placeholder: "What did you observe? What went well? What would you do differently?",
+    style: {
+      ...inputStyle,
+      minHeight: 100,
+      resize: "vertical",
+      lineHeight: 1.5
+    }
+  })), tradeClosed && finalStats ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 16
+    }
+  }, currentLoggedId == null ? /*#__PURE__*/React.createElement("button", {
+    onClick: logTrade,
+    style: {
+      width: "100%",
+      padding: "16px 16px",
+      borderRadius: 8,
+      border: `2px solid ${accent}`,
+      background: accentDim,
+      color: accent,
+      fontWeight: 700,
+      fontSize: 16,
+      letterSpacing: "0.08em",
+      textTransform: "uppercase",
+      cursor: "pointer"
+    }
+  }, "LOG TRADE") : /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "12px 16px",
+      borderRadius: 8,
+      background: "rgba(52,211,153,0.12)",
+      border: `1px solid ${green}`,
+      color: green,
+      fontWeight: 700,
+      textAlign: "center",
+      fontSize: 14
+    }
+  }, "✓ Trade logged. View in \"Logged Trades\" tab. Hit Reset to start a new one.")) : posSummary ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 16,
+      padding: "10px 14px",
+      borderRadius: 8,
+      background: "rgba(251,191,36,0.06)",
+      border: `1px dashed rgba(251,191,36,0.3)`,
+      color: amber,
+      fontSize: 13,
+      textAlign: "center"
+    }
+  }, "Close the trade (Stopped Out or Manual Close) to enable LOG TRADE") : null)), tab === "logged" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: 920,
+      margin: "0 auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: cardStyle
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 14,
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff"
+    }
+  }, "Logged Trades (", loggedTrades.length, ")"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: exportCSV,
+    disabled: loggedTrades.length === 0,
+    style: {
+      padding: "8px 14px",
+      borderRadius: 6,
+      border: `1px solid ${green}`,
+      background: "rgba(52,211,153,0.12)",
+      color: loggedTrades.length === 0 ? textMuted : green,
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: loggedTrades.length === 0 ? "not-allowed" : "pointer",
+      opacity: loggedTrades.length === 0 ? 0.4 : 1
+    }
+  }, "Export CSV"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      if (window.confirm("Delete ALL logged trades? This cannot be undone.")) clearAllLoggedTrades();
+    },
+    disabled: loggedTrades.length === 0,
+    style: {
+      padding: "8px 14px",
+      borderRadius: 6,
+      border: `1px solid ${red}`,
+      background: "transparent",
+      color: loggedTrades.length === 0 ? textMuted : red,
+      fontWeight: 700,
+      fontSize: 13,
+      cursor: loggedTrades.length === 0 ? "not-allowed" : "pointer",
+      opacity: loggedTrades.length === 0 ? 0.4 : 1
+    }
+  }, "Clear All"))), loggedTrades.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 40,
+      color: textDim,
+      fontSize: 14
+    }
+  }, "No trades logged yet. Run a trade through tabs 1 → 2 → 3, close it, then click LOG TRADE on the Post-Trade Review tab.") : analytics ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 16,
+      background: surface2,
+      borderRadius: 8,
+      padding: "12px 8px",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Total Trades",
+    value: String(analytics.n),
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Wins",
+    value: String(analytics.wins),
+    color: green,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Losses",
+    value: String(analytics.losses),
+    color: red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Win Rate",
+    value: analytics.winRate.toFixed(0) + "%",
+    color: analytics.winRate >= 50 ? green : amber,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Total P&L",
+    value: (analytics.totalPnl >= 0 ? "+$" : "-$") + fmt(Math.abs(analytics.totalPnl)),
+    color: analytics.totalPnl >= 0 ? green : red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Total R",
+    value: (analytics.totalR >= 0 ? "+" : "") + analytics.totalR.toFixed(2) + "R",
+    color: analytics.totalR >= 0 ? green : red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Avg R/Trade",
+    value: (analytics.avgR >= 0 ? "+" : "") + analytics.avgR.toFixed(2) + "R",
+    color: analytics.avgR >= 0 ? green : red,
+    small: true
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 8,
+      padding: "14px 12px",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, "Expectancy"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Expectancy",
+    value: (analytics.expectancy >= 0 ? "+" : "") + analytics.expectancy.toFixed(3) + "R",
+    color: analytics.expectancy >= 0 ? green : red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Avg Win",
+    value: (analytics.avgWinR >= 0 ? "+" : "") + analytics.avgWinR.toFixed(2) + "R",
+    color: green,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Avg Loss",
+    value: analytics.avgLossR.toFixed(2) + "R",
+    color: red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "W/L Ratio",
+    value: analytics.wlRatio.toFixed(2),
+    color: analytics.wlRatio >= 1 ? green : amber,
+    small: true
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      padding: "8px 12px",
+      background: surface,
+      borderRadius: 6,
+      fontSize: 12,
+      color: textDim,
+      lineHeight: 1.5
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted,
+      fontWeight: 700
+    }
+  }, "Read:"), " for every $1 of risk you take, you earn back ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: analytics.expectancy >= 0 ? green : red,
+      fontWeight: 700,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, (analytics.expectancy >= 0 ? "+" : "") + analytics.expectancy.toFixed(3)), " on average. ", analytics.expectancy >= 0 ? "Strategy is profitable over this sample." : "Strategy is unprofitable over this sample — investigate which trades are dragging you down.")), analytics.curve.length > 1 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 8,
+      padding: "14px 12px",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, "Equity Curve (Cumulative P&L)"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: textMuted
+    }
+  }, "x-axis: trade number")), /*#__PURE__*/React.createElement(EquityCurve, {
+    curve: analytics.curve,
+    mode: "pnl"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 8,
+      padding: "14px 12px",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, "R-Multiple Distribution"), /*#__PURE__*/React.createElement(RHistogram, {
+    buckets: analytics.buckets
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 6,
+      fontSize: 11,
+      color: textMuted,
+      textAlign: "center"
+    }
+  }, "Shape of returns: positive skew (big winners) means a few trades pay for the losses.")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: surface2,
+      borderRadius: 8,
+      padding: "14px 12px",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, "Streaks & Drawdown"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement(StatBox, {
+    label: "Current Streak",
+    value: analytics.curStreak === 0 ? "—" : analytics.curStreak > 0 ? analytics.curStreak + "W" : Math.abs(analytics.curStreak) + "L",
+    color: analytics.curStreak > 0 ? green : analytics.curStreak < 0 ? red : textDim,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Max Win Streak",
+    value: String(analytics.maxWinStreak),
+    color: green,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Max Loss Streak",
+    value: String(analytics.maxLossStreak),
+    color: red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Max DD $",
+    value: "$" + fmt0(analytics.maxDD),
+    color: red,
+    small: true
+  }), /*#__PURE__*/React.createElement(StatBox, {
+    label: "Max DD %",
+    value: analytics.maxDDPct.toFixed(2) + "%",
+    color: analytics.maxDDPct > 20 ? red : analytics.maxDDPct > 10 ? amber : textDim,
+    small: true
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...cardStyle,
+      padding: "14px 12px",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "#fff",
+      marginBottom: 12
+    }
+  }, "Performance Breakdown"), /*#__PURE__*/React.createElement(BreakdownTable, {
+    title: "By Setup Type",
+    rows: analytics.bySetup,
+    keyLabel: "Setup"
+  }), /*#__PURE__*/React.createElement(BreakdownTable, {
+    title: "By Asset",
+    rows: analytics.byAsset,
+    keyLabel: "Asset"
+  }), /*#__PURE__*/React.createElement(BreakdownTable, {
+    title: "By Direction",
+    rows: analytics.byDirection,
+    keyLabel: "Direction"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: sectionLabel
+  }, "All Trades (", loggedTrades.length, ")"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 4
+    }
+  }, [...loggedTrades].reverse().map(t => /*#__PURE__*/React.createElement("details", {
+    key: t.id,
+    style: {
+      background: surface2,
+      borderRadius: 6
+    }
+  }, /*#__PURE__*/React.createElement("summary", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "10px 12px",
+      fontSize: 13,
+      cursor: "pointer",
+      listStyle: "none"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted,
+      fontFamily: "'JetBrains Mono', monospace",
+      minWidth: 100
+    }
+  }, new Date(t.date_logged).toLocaleDateString()), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#fff",
+      fontWeight: 600,
+      minWidth: 90
+    }
+  }, t.asset || "—"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: t.direction === "Long" ? green : red,
+      fontWeight: 700,
+      minWidth: 50
+    }
+  }, t.direction), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: t.r_multiple >= 0 ? green : red,
+      fontFamily: "'JetBrains Mono', monospace",
+      fontWeight: 700,
+      minWidth: 70
+    }
+  }, t.r_multiple >= 0 ? "+" : "", t.r_multiple.toFixed(2), "R"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: t.realized_pnl_usd >= 0 ? green : red,
+      fontFamily: "'JetBrains Mono', monospace",
+      minWidth: 100
+    }
+  }, t.realized_pnl_usd >= 0 ? "+$" : "-$", fmt(Math.abs(t.realized_pnl_usd))), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textDim,
+      fontSize: 12,
+      fontFamily: "'JetBrains Mono', monospace",
+      minWidth: 70
+    }
+  }, t.pct_of_account >= 0 ? "+" : "", t.pct_of_account.toFixed(2), "%"), t.stopped_out && /*#__PURE__*/React.createElement(Badge, {
+    kind: "StopOut"
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: e => {
+      e.preventDefault();
+      if (window.confirm("Delete this logged trade?")) deleteLoggedTrade(t.id);
+    },
+    style: {
+      background: "none",
+      border: "none",
+      color: red,
+      cursor: "pointer",
+      fontSize: 16,
+      marginLeft: "auto",
+      padding: "0 4px"
+    }
+  }, "x")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "0 14px 14px",
+      fontSize: 13
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 14,
+      flexWrap: "wrap",
+      color: textDim,
+      marginBottom: 8,
+      paddingTop: 8,
+      borderTop: `1px solid ${border}`
+    }
+  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Setup:"), " ", t.setup_type || "—"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Plan Entry:"), " $", fmt(t.planned_entry)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Avg Entry:"), " $", fmt(t.avg_entry)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Avg Exit:"), " $", fmt(t.avg_exit)), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Risk:"), " $", fmt(t.risk_amount), " (", t.risk_pct, "%)"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Adds:"), " ", t.num_adds), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "TPs:"), " ", t.num_partial_tps), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Stop Moves:"), " ", t.num_stop_moves)), t.confirmation && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: textDim,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted
+    }
+  }, "Confirmations:"), " ", t.confirmation), t.action_history && t.action_history.length > 0 && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: textMuted,
+      textTransform: "uppercase",
+      marginBottom: 6
+    }
+  }, "Action History"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 3
+    }
+  }, t.action_history.map((ev, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      padding: "5px 8px",
+      background: surface,
+      borderRadius: 5,
+      fontSize: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted,
+      minWidth: 22,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, "#", i + 1), /*#__PURE__*/React.createElement(Badge, {
+    kind: ev.kind
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: "'JetBrains Mono', monospace",
+      minWidth: 80
+    }
+  }, "$", fmt(ev.price)), ev.qty != null && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textDim,
+      fontFamily: "'JetBrains Mono', monospace"
+    }
+  }, fmt(ev.qty, 4), " units"), ev.reason && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textDim,
+      fontStyle: "italic"
+    }
+  }, ev.reason))))), t.trade_notes && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      padding: "8px 10px",
+      background: surface,
+      borderRadius: 5,
+      fontSize: 12,
+      color: textDim
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: textMuted,
+      fontWeight: 700
+    }
+  }, "Notes:"), " ", t.trade_notes)))))) : null)));
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(React.createElement(TradeTool));</script>
